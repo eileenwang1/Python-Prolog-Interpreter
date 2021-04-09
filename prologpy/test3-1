@@ -1,0 +1,146 @@
+ 
+<query>
+	<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+		<query>
+			<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+			<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+				<yield output="parent_child ( alice, bob ) " matchinghead="{Z: bob}"></yield>
+				<query>
+					<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+					<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+					<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+					<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+					<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+					<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+						<yield output="parent_child ( bob, charlie ) " matchinghead="{X: charlie}"></yield>
+						<yield output="grand_parent ( alice, charlie ) " matchinghead="{X: alice, Y: X}"></yield>
+					</forloop>
+					<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+				</query>
+			</forloop>
+			<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+				<yield output="parent_child ( alice, bertie ) " matchinghead="{Z: bertie}"></yield>
+				<query>
+					<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+					<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+					<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+					<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+					<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+						<yield output="parent_child ( bertie, chuck ) " matchinghead="{X: chuck}"></yield>
+						<yield output="grand_parent ( alice, chuck ) " matchinghead="{X: alice, Y: X}"></yield>
+					</forloop>
+					<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+					<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+				</query>
+			</forloop>
+			<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+			<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+			<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+			<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+		</query>
+	</forloop>
+	<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+	<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+	<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+	<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+	<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+	<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+</query>
+<query>
+	<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+		<query>
+			<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+			<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+				<yield output="parent_child ( alice, bob ) " matchinghead="{X: alice, Z: bob}"></yield>
+				<query>
+					<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+					<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+					<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+					<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+					<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+					<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+						<yield output="parent_child ( bob, charlie ) " matchinghead="{Y: charlie}"></yield>
+						<yield output="grand_parent ( alice, charlie ) " matchinghead="{X: X, Y: Y}"></yield>
+					</forloop>
+					<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+				</query>
+			</forloop>
+			<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+				<yield output="parent_child ( alice, bertie ) " matchinghead="{X: alice, Z: bertie}"></yield>
+				<query>
+					<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+					<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+					<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+					<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+					<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+						<yield output="parent_child ( bertie, chuck ) " matchinghead="{Y: chuck}"></yield>
+						<yield output="grand_parent ( alice, chuck ) " matchinghead="{X: X, Y: Y}"></yield>
+					</forloop>
+					<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+					<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+				</query>
+			</forloop>
+			<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+				<yield output="parent_child ( charlie, daisy ) " matchinghead="{X: charlie, Z: daisy}"></yield>
+				<query>
+					<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+					<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+					<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+					<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+					<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+					<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+					<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+				</query>
+			</forloop>
+			<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+				<yield output="parent_child ( bertie, chuck ) " matchinghead="{X: bertie, Z: chuck}"></yield>
+				<query>
+					<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+					<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+					<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+					<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+					<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+					<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+					<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+						<yield output="parent_child ( chuck, david ) " matchinghead="{Y: david}"></yield>
+						<yield output="grand_parent ( bertie, david ) " matchinghead="{X: X, Y: Y}"></yield>
+					</forloop>
+				</query>
+			</forloop>
+			<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+				<yield output="parent_child ( bob, charlie ) " matchinghead="{X: bob, Z: charlie}"></yield>
+				<query>
+					<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+					<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+					<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+					<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+						<yield output="parent_child ( charlie, daisy ) " matchinghead="{Y: daisy}"></yield>
+						<yield output="grand_parent ( bob, daisy ) " matchinghead="{X: X, Y: Y}"></yield>
+					</forloop>
+					<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+					<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+					<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+				</query>
+			</forloop>
+			<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+				<yield output="parent_child ( chuck, david ) " matchinghead="{X: chuck, Z: david}"></yield>
+				<query>
+					<forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) "></forloop>
+					<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+					<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+					<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+					<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+					<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+					<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+				</query>
+			</forloop>
+		</query>
+	</forloop>
+	<forloop index="1" rule="parent_child ( alice, bob )  :- TRUE"></forloop>
+	<forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE"></forloop>
+	<forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE"></forloop>
+	<forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE"></forloop>
+	<forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE"></forloop>
+	<forloop index="6" rule="parent_child ( chuck, david )  :- TRUE"></forloop>
+</query>
+ 

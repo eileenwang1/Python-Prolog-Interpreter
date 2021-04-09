@@ -163,7 +163,7 @@ class Conjunction(Term):
     """# A conjunction is a logical operator that connects two terms. A conjunction
     between the two terms will result in the expression evaluating to true only if
     both terms evaluate to true. As an example, we could state that a teacher
-    teaches another student if the student lectures a course and the student
+    teaches another student if the teacher lectures a course and the student
     studies the course using the rule below:
 
     teaches(Teacher, Student) :- lectures(Teacher, Course), studies(Student, Course).
@@ -249,16 +249,21 @@ class Database(object):
     def query(self, goal):
         """Return a generator that iterates over all of the terms matching the given
         goal.
-
         """
+        print("<query goal=\"{}\">".format(goal))
+
+        # print("\nNEW QUERY CALL")
 
         for index, rule in enumerate(self.rules):
+            print("<forloop index=\"{}\" rule=\"{}\">".format(index,rule))
+            # print("index: ",index, "\trule: ",rule)
 
             # We obtain the map containing our shared rule head and goal variable
             # bindings, and process the matching results if there are any to process.
             matching_head_var_bindings = rule.head.match_variable_bindings(
                 goal
             )
+            # print("matching_head_var_bindings: ",matching_head_var_bindings)
 
             if matching_head_var_bindings is not None:
 
@@ -268,9 +273,13 @@ class Database(object):
                 matched_tail_item = rule.tail.substitute_variable_bindings(
                     matching_head_var_bindings
                 )
+                print("<matching_head matchinghead=\"{}\"> </matching_head>".format(matching_head_var_bindings))
+
+                # print("matched_tail_item: ", type(matched_tail_item),matched_tail_item)
 
                 # Query the database for the substituted tail items matching our rules
                 for matching_item in matched_tail_item.query(self):
+                    # print("matching_item: ",matching_item)
 
                     # Fetch the map containing our variable bindings matching the
                     # tail of our rule.
@@ -281,9 +290,20 @@ class Database(object):
                     # We return a generator yielding head terms with the substituted
                     # variable bindings replaced with the bindings found by querying
                     # our tail.
-                    yield matched_head_item.substitute_variable_bindings(
+                    to_yield = matched_head_item.substitute_variable_bindings(
                         matcng_tail_var_bndngs
                     )
+                    # print("to_yield: ",to_yield)
+
+                    print("<yield output=\"{}\">".format(to_yield))
+                    print("</yield>")
+                    # print("END OF FOR-LOOP\n")
+                    yield to_yield
+
+
+            print("</forloop>")
+        print("</query>")
+        
 
     @staticmethod
     def merge_bindings(first_bindings_map, second_bindings_map):

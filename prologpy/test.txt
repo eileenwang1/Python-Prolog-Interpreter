@@ -1,0 +1,33 @@
+test 1:
+
+sibling(X, Y) :- parent_child(Z, X), parent_child(Z, Y).
+parent_child( tom_smith, mary ).
+parent_child( tom_smith, jack ).
+
+sibling(mary,X).
+
+X = [mary,jack].
+
+
+test 2:
+sibling(X, Y) :- parent_child(Z, X), parent_child(Z, Y).
+parent_child( tom_smith, mary ).
+parent_child( tom_smith, jack ).
+
+sibling(tom_smith,X).
+no solutions found.
+
+test 3:
+grand_parent(X, Y) :- parent_child(X, Z), parent_child(Z, Y).
+parent_child( alice, bob ).
+parent_child( alice, bertie ).
+parent_child(charlie, daisy ).
+parent_child(bertie, chuck ).
+parent_child( bob, charlie ).
+parent_child(chuck, david ).
+
+grand_parent(X,Y).
+X = [charlie, chuck]
+
+
+

@@ -15,6 +15,8 @@ class Solver(object):
         query solutions. """
 
         query = Parser(query_text).parse_query()
+        print("query: ",query)
+        # data type is term
 
         query_variable_map = {}
         variables_in_query = False
@@ -22,13 +24,18 @@ class Solver(object):
         # Find any variables within the query and return a map containing the
         # variable name to actual Prolog variable mapping we can later use to query
         # our database.
+        print("query.arguments: ",query.arguments)
         for argument in query.arguments:
             if isinstance(argument, Variable):
                 variables_in_query = True
                 query_variable_map[argument.name] = argument
+        # print("query_variable_map: ",query_variable_map)
+        # {'X': X} variable name is a literal, variable is a variable
 
         # Return a generator which iterates over the terms matching our query
         matching_query_terms = [item for item in self.database.query(query)]
+        # print(matching_query_terms)
+        # a list of query terms that makes the query true
 
         if matching_query_terms:
             if query_variable_map:
@@ -42,6 +49,7 @@ class Solver(object):
                     matching_variable_bindings = query.match_variable_bindings(
                         matching_query_term
                     )
+                    print("matching_query_term: ",matching_query_term)
 
                     # Itarate over the query variables and bind them to the matched
                     # database bindings
@@ -49,6 +57,8 @@ class Solver(object):
                         solutions_map[variable_name].append(
                             matching_variable_bindings.get(variable)
                         )
+                        print("solutions_map: ",solutions_map)
+                        
 
                 return solutions_map
 
