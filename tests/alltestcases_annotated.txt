@@ -29,5 +29,18 @@ parent_child(chuck, david ).
 grand_parent(X,Y).
 X = [charlie, chuck]
 
+test4:
+tran(eins,one).
+tran(zwei,two).
+tran(drei,three).
+listran(list(),list()).
+listtran(list(A,B),list(C,D)) :- tran(A,B),listtran(C,D).
+
+listtran((list(eins),list(X))).
+
+No.
+
+
+
 
 

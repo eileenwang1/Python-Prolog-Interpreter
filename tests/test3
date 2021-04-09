@@ -1,0 +1,9 @@
+grand_parent(X, Y) :- parent_child(X, Z), parent_child(Z, Y).
+parent_child( alice, bob ).
+parent_child( alice, bertie ).
+parent_child(charlie, daisy ).
+parent_child(bertie, chuck ).
+parent_child( bob, charlie ).
+parent_child(chuck, david ).
+
+grand_parent(X,Y).

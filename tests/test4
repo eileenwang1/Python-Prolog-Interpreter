@@ -1,0 +1,10 @@
+tran(eins,one).
+tran(zwei,two).
+tran(drei,three).
+listtran(list(A,B),list(C,D)) :- tran(A,B),listtran(C,D).
+
+listtran((list(eins),list(X))).
+
+
+
+

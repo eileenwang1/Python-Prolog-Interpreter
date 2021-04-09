@@ -1,5 +1,6 @@
 import re
 from prologpy.interpreter import Conjunction, Variable, Term, TRUE, Rule
+# from interpreter import Conjunction, Variable, Term, TRUE, Rule
 
 
 TOKEN_REGEX = r"[A-Za-z0-9_]+|:\-|[()\.,]"
