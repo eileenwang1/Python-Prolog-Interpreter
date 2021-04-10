@@ -1,4 +1,5 @@
-from solver import Solver
+# import Solver
+from prologpy.solver import Solver
 import sys
 
 def test_prettyprint(filename):

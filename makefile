@@ -4,8 +4,8 @@
 PYTHON = python3
 # TESTFILE = tests/test1
 # TESTFILE = tests/test2
-# TESTFILE = tests/test3
-TESTFILE = tests/test4
+TESTFILE = tests/test3
+# TESTFILE = tests/test4
 
 
 # .PHONY defines parts of the makefile that are not dependant on any specific file
@@ -43,7 +43,7 @@ test:
 	${PYTHON} -m pytest
 
 test_prettyprint:
-	${PYTHON} prologpy/test_prettyprint.py ${TESTFILE} > ${TESTFILE}_output
+	${PYTHON} test_prettyprint.py ${TESTFILE} > ${TESTFILE}_output
 	
 run:
 	${PYTHON} our_app.py

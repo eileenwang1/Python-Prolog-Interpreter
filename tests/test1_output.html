@@ -1,0 +1,38 @@
+<query goal="sibling ( mary, X ) ">
+<forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>
+<query goal="parent_child ( Z, mary ) ">
+<forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+</forloop>
+<forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+<matching_head matchinghead="{Z: tom_smith}"> </matching_head>
+<yield output="parent_child ( tom_smith, mary ) ">
+</yield>
+<query goal="parent_child ( tom_smith, X ) ">
+<forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+</forloop>
+<forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+<matching_head matchinghead="{X: mary}"> </matching_head>
+<yield output="parent_child ( tom_smith, mary ) ">
+</yield>
+<yield output="sibling ( mary, mary ) ">
+</yield>
+</forloop>
+<forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+<matching_head matchinghead="{X: jack}"> </matching_head>
+<yield output="parent_child ( tom_smith, jack ) ">
+</yield>
+<yield output="sibling ( mary, jack ) ">
+</yield>
+</forloop>
+</query>
+</forloop>
+<forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+</forloop>
+</query>
+</forloop>
+<forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+</forloop>
+<forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+</forloop>
+</query>

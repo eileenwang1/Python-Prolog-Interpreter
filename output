@@ -1,0 +1,266 @@
+CURR_LINE:  <query goal="sibling ( mary, X ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ []
+CURR_LINE:  <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ []
+CURR_LINE:  <matching_head matchinghead="{X: mary, Y: X}"> </matching_head>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>']
+CURR_LINE:  <query goal="parent_child ( Z, mary ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>']
+CURR_LINE:  <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>']
+CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>']
+CURR_LINE:  <matching_head matchinghead="{Z: tom_smith}"> </matching_head>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>']
+CURR_LINE:  <yield output="parent_child ( tom_smith, mary ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">']
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>']
+CURR_LINE:  <query goal="parent_child ( tom_smith, X ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>']
+CURR_LINE:  <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>']
+CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>']
+CURR_LINE:  <matching_head matchinghead="{X: mary}"> </matching_head>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>']
+CURR_LINE:  <yield output="parent_child ( tom_smith, mary ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">']
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>']
+CURR_LINE:  <yield output="sibling ( mary, mary ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">']
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>']
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>']
+CURR_LINE:  <matching_head matchinghead="{X: jack}"> </matching_head>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>']
+CURR_LINE:  <yield output="parent_child ( tom_smith, jack ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">']
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>']
+CURR_LINE:  <yield output="sibling ( mary, jack ) ">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">']
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">', 'index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">', 'goal="parent_child ( tom_smith, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">', 'index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">', 'goal="parent_child ( Z, mary ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ ['index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ ['index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ ['index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">']
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="sibling ( mary, X ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']
+CURR_LINE:  </query>
+AND_STACK:
+ []
+OR_STACK:
+ []
+OUTPUT_STACK:
+ ['<matching_head matchinghead="{X: mary, Y: X}"> </matching_head>', '<matching_head matchinghead="{Z: tom_smith}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<matching_head matchinghead="{X: mary}"> </matching_head>', '<yield output="parent_child ( tom_smith, mary ) ">', '</yield>', '<yield output="sibling ( mary, mary ) ">', '</yield>', '<matching_head matchinghead="{X: jack}"> </matching_head>', '<yield output="parent_child ( tom_smith, jack ) ">', '</yield>', '<yield output="sibling ( mary, jack ) ">', '</yield>']

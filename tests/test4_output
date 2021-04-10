@@ -1,0 +1,12 @@
+query:  listtran ( list ( eins ) , list ( X )  ) 
+query.arguments:  [list ( eins ) , list ( X ) ]
+<query goal="listtran ( list ( eins ) , list ( X )  ) ">
+<forloop index="0" rule="tran ( eins, one )  :- TRUE">
+</forloop>
+<forloop index="1" rule="tran ( zwei, two )  :- TRUE">
+</forloop>
+<forloop index="2" rule="tran ( drei, three )  :- TRUE">
+</forloop>
+<forloop index="3" rule="listtran ( list ( A, B ) , list ( C, D )  )  :- tran ( A, B ) , listtran ( C, D ) ">
+</forloop>
+</query>
