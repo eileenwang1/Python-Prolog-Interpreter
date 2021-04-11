@@ -51,4 +51,4 @@ if len(key_tuple)>0:
     # todo: label of vertives is subject to change
     g.vs['label'] = [i for i in range(len(g.vs))]
     # plot(g, "social_network.pdf", **visual_style)
-    plot(g,"test1_plot.pdf",layout=layout)
+    plot(g,"test1_plot.png",layout=layout)
