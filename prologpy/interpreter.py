@@ -273,7 +273,7 @@ class Database(object):
                 matched_tail_item = rule.tail.substitute_variable_bindings(
                     matching_head_var_bindings
                 )
-                print("<matching_head matchinghead=\"{}\"> </matching_head>".format(matching_head_var_bindings))
+                print("<matching_head matchinghead=\"{}\"> \n</matching_head>".format(matching_head_var_bindings))
 
                 # print("matched_tail_item: ", type(matched_tail_item),matched_tail_item)
 

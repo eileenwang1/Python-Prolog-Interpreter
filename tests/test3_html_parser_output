@@ -1,0 +1,1246 @@
+CURR_LINE:  <query goal="grand_parent ( X, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {}
+CURR_LINE:  <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {}
+CURR_LINE:  <matching_head matchinghead="{X: X, Y: Y}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}}
+CURR_LINE:  <query goal="parent_child ( X, Z ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}}
+CURR_LINE:  <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}}
+CURR_LINE:  <forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}}
+CURR_LINE:  <matching_head matchinghead="{X: alice, Z: bob}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <yield output="parent_child ( alice, bob ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <query goal="parent_child ( bob, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}}
+CURR_LINE:  <matching_head matchinghead="{Y: charlie}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  <yield output="parent_child ( bob, charlie ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  <yield output="grand_parent ( alice, charlie ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  <forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bob, Y ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  <forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}}
+CURR_LINE:  <matching_head matchinghead="{X: alice, Z: bertie}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  <yield output="parent_child ( alice, bertie ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  <query goal="parent_child ( bertie, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  <forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  <forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  <forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  <forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}}
+CURR_LINE:  <matching_head matchinghead="{Y: chuck}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  <yield output="parent_child ( bertie, chuck ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  <yield output="grand_parent ( alice, chuck ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  <forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  <forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( bertie, Y ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  <forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}}
+CURR_LINE:  <matching_head matchinghead="{X: charlie, Z: daisy}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <yield output="parent_child ( charlie, daisy ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <query goal="parent_child ( daisy, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3', '0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( daisy, Y ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}}
+CURR_LINE:  <matching_head matchinghead="{X: bertie, Z: chuck}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <yield output="parent_child ( bertie, chuck ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <query goal="parent_child ( chuck, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}}
+CURR_LINE:  <matching_head matchinghead="{Y: david}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  <yield output="parent_child ( chuck, david ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  <yield output="grand_parent ( bertie, david ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( chuck, Y ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  <forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}}
+CURR_LINE:  <matching_head matchinghead="{X: bob, Z: charlie}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  <yield output="parent_child ( bob, charlie ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  <query goal="parent_child ( charlie, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  <forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  <forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  <forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}}
+CURR_LINE:  <matching_head matchinghead="{Y: daisy}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  <yield output="parent_child ( charlie, daisy ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  <yield output="grand_parent ( bob, daisy ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  <forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  <forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  <forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( charlie, Y ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  <forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}}
+CURR_LINE:  <matching_head matchinghead="{X: chuck, Z: david}">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <yield output="parent_child ( chuck, david ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </yield>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <query goal="parent_child ( david, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6', '0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6', '1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6', '2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6', '3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6', '4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6', '5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">', 'goal="parent_child ( david, Y ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0', '6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">', 'goal="parent_child ( X, Z ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </query>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['0']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="1" rule="parent_child ( alice, bob )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['1']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="2" rule="parent_child ( alice, bertie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['2']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="3" rule="parent_child ( charlie, daisy )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['3']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="4" rule="parent_child ( bertie, chuck )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['4']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="5" rule="parent_child ( bob, charlie )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['5']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  <forloop index="6" rule="parent_child ( chuck, david )  :- TRUE">
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ ['6']
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['goal="grand_parent ( X, Y ) ">']
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
+CURR_LINE:  </query>
+AND_STACK:
+ []
+OR_STACK:
+ []
+OUTPUT_STACK:
+ {'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
