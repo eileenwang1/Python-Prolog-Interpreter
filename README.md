@@ -8,6 +8,9 @@
  * igraph
  * Cairo (from homebrew)
  
+## Tree
+![](/images/test1_plot.png)
+
 # April 9 Update
 limitation: does not support recursion.
 
