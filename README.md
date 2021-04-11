@@ -35,6 +35,7 @@ parent_child( tom_smith, jack ).
    - more complex cases (test3): two unviable solutions are not eliminated from the graph
    - cases where the interpreter returns false (test2), or is beyond its capacity in solving (test4, as this interpreter does not support recursive calls)
  * readability for graph plots (orientation, position of labels, etc.)
+ * dynamnic plotting?
 
 # April 9 Update
 limitation: does not support recursion.
