@@ -8,6 +8,7 @@ parent_child( tom_smith, mary ).
 parent_child( tom_smith, jack ).
 
 ?- sibling(mary,X).
+X = [mary,jack].
 ```
 ![](/images/test1_plot.png)
 
