@@ -1,8 +1,14 @@
 # April 11 update
 ## Workflow
- * python interpreter -> html output for sequence of solutions
- * html output -> AND-stack, OR-stack, output-dict(mapping obtained by following a rule sequence)
- * output-dict -> tree representation (using igraph)
+ * make pretty_print:
+   - prologpy/interpreter.py -> tests/test1 -> tests/test1_output
+   - pretty print (html) the sequence of execution that the prolog interpreter finds solutions
+ * make parse_html (makefile unspecified)
+   - html_parser.py -> tests/test1_output -> test1_output.html -> test1_html_parser_ouput (output_dict)
+   - clean pretty-print output, get a mapping from sequence of rules to variable mappings
+ * make plotting (makefile unspecified)
+   - output_dict -> tree image
+   - visualize contents in output_dict
 
 ## Dependencies
  * igraph
@@ -10,6 +16,14 @@
  
 ## Tree
 ![](/images/test1_plot.png)
+
+## Next steps:
+ * add meaningful labels for vertices (goal?)
+ * clean the workflow, specify commands in makefile
+ * deal with edge cases
+   - more complex cases (test3): two unviable solutions are not eliminated from the graph
+   - cases where the interpreter returns false (test2), or is beyond its capacity in solving (test4, as this interpreter does not support recursive calls)
+ * readability for graph plots (orientation, position of labels, etc.)
 
 # April 9 Update
 limitation: does not support recursion.
