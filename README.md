@@ -1,4 +1,16 @@
 # April 11 update
+Draw the search tree for variable mappings following a sequence of rules in the database.
+
+## Tree
+```prolog
+sibling(X, Y) :- parent_child(Z, X), parent_child(Z, Y).
+parent_child( tom_smith, mary ).
+parent_child( tom_smith, jack ).
+
+?- sibling(mary,X).
+```
+![](/images/test1_plot.png)
+
 ## Workflow
  * make pretty_print:
    - prologpy/interpreter.py -> tests/test1 -> tests/test1_output
@@ -14,8 +26,7 @@
  * igraph
  * Cairo (from homebrew)
  
-## Tree
-![](/images/test1_plot.png)
+
 
 ## Next steps:
  * add meaningful labels for vertices (goal?)
