@@ -104,5 +104,5 @@ def extract_key_value_pair(matching_str):
 
 
 if __name__ == '__main__':
-    output_to_html("tests/test3_output")
-    html_parser("tests/test3_output.html")
+    output_to_html("tests/test1_output")
+    html_parser("tests/test1_output.html")

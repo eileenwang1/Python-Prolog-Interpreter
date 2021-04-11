@@ -1,3 +1,13 @@
+# April 11 update
+## Workflow
+ * python interpreter -> html output for sequence of solutions
+ * html output -> AND-stack, OR-stack, output-dict(mapping obtained by following a rule sequence)
+ * output-dict -> tree representation (using igraph)
+
+## Dependencies
+ * igraph
+ * Cairo (from homebrew)
+ 
 # April 9 Update
 limitation: does not support recursion.
 
