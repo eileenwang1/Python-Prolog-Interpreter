@@ -31,6 +31,17 @@ Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
 
 
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ ['0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+
+
 CURR_LINE:  <query goal="parent_child ( Z, mary ) ">
 AND_STACK:
  ['sibling ( mary, A )', 'parent_child ( Z, mary )']
@@ -96,6 +107,19 @@ Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
 
 
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+
+
 CURR_LINE:  <yield output="parent_child ( tom_smith, mary ) ">
 AND_STACK:
  ['sibling ( mary, A )', 'parent_child ( Z, mary )']
@@ -105,7 +129,20 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+
+
+CURR_LINE:  </yield>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
 
 
@@ -118,7 +155,7 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
 Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
@@ -133,7 +170,7 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
 Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
@@ -148,7 +185,7 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
 Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
@@ -163,7 +200,7 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
 Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
@@ -178,7 +215,22 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
 Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
@@ -193,9 +245,24 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  </yield>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -208,9 +275,24 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, mary )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  </yield>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -223,9 +305,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, mary )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -238,9 +320,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, mary )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -253,9 +335,24 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, mary )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  </matching_head>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -268,9 +365,24 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = parent_child ( tom_smith, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  </yield>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -283,9 +395,24 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  </yield>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -298,9 +425,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -313,9 +440,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -328,9 +455,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -343,9 +470,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -358,9 +485,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -373,9 +500,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -388,9 +515,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -403,9 +530,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -418,9 +545,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -433,9 +560,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -448,9 +575,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 
@@ -463,9 +590,9 @@ OUTPUT_DICT:
  {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
 Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
 
-Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
 
-Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
 
 
 

@@ -3,20 +3,21 @@
 # for loops are the or-stack
 # the output should be stored globally, but how to store the sources of output?
 import re
-class Node(object):
-    def __init__(self,idx):
-        self.idx = idx
-        self.goal = ""
-        self.yield_value=None
+from graph import Graph 
+# class Node(object):
+#     def __init__(self,idx):
+#         self.idx = idx
+#         self.goal = ""
+#         self.yield_value=None
 
-    def __str__(self):
-        return "Node: idx = {}, goal = {}, yield_value = {}\n".format(self.idx,self.goal, self.yield_value)
+#     def __str__(self):
+#         return "Node: idx = {}, goal = {}, yield_value = {}\n".format(self.idx,self.goal, self.yield_value)
 
-class Edge():
-    def __init__(idx):
-        self.idx = idx
-        self.rule_encoding = -1
-        self.matching_dict = {}
+# class Edge():
+#     def __init__(idx):
+#         self.idx = idx
+#         self.rule_encoding = ""
+#         self.matching_dict = {}
 
 class HtmlParser(object):
     def __init__(self, src_filename):
@@ -42,7 +43,9 @@ def html_parser(html_filename):
     and_stack = []
     or_stack=[]
     output_dict={} 
-    node_list = []
+    # node_list = []
+    g = Graph()
+
     # a dictionary
     # key: (string of numbers) encoding of the OR-stack, 
     # value: dict of variable matching
@@ -57,10 +60,11 @@ def html_parser(html_filename):
         if curr_line[:7]=="<query ":
             goal = extract_goal(curr_line[7:])
             and_stack.append(goal)
-            # modification of node_list
-            new_node = Node(len(node_list))
-            new_node.goal = goal
-            node_list.append(new_node)
+            # # modification of node_list
+            # new_node = Node(len(node_list))
+            # new_node.goal = goal
+            # node_list.append(new_node)
+            
         elif curr_line == "</query>":
             try:
                 and_stack.pop()
@@ -96,7 +100,8 @@ def html_parser(html_filename):
             if len(and_stack)==0:
                 print("ERROR: and_stack empty when yield")
                 return
-            curr_goal = and_stack[-1]
+            first_goal = and_stack[0]
+
             curr_node=None
             for i in range(len(node_list)):
                 if node_list[i].goal==curr_goal:
@@ -106,9 +111,9 @@ def html_parser(html_filename):
                 print("ERROR: no corresponding node for yield output")
                 return
             curr_node.yield_value = yield_value
-        else:
-            continue
-            # no modification
+        # else:
+        #     continue
+        #     # no modification
         print("CURR_LINE: ",curr_line)
         print("AND_STACK:\n",and_stack)
         print("OR_STACK:\n",or_stack)
@@ -155,5 +160,5 @@ def extract_yield_value(yield_text):
     return to_return
 
 if __name__ == '__main__':
-    output_to_html("tests/test1_output")
+    # output_to_html("tests/test1_output")
     html_parser("tests/test1_output.html")
