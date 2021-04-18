@@ -9,32 +9,36 @@ class Graph:
     
         def __init__(self, idx, goal=None):
             """Do not call constructor directly. Use Graph's insert_vertex(x)."""
-            self._element = goal
+            self.goal = goal
             self.idx = idx
 
-        def element(self):
-            """Return element associated with this vertex."""
-            return self._element
+        # def element(self):
+        #     """Return element associated with this vertex."""
+        #     return self._element
     
         def __hash__(self):         # will allow vertex to be a map/set key
-            return hash(id(self))
+            return hash(self.idx)
 
         def __str__(self):
-            return str(self._element)
+            return "VERTEX ({}, {})".format(self.idx,self.goal)
+            # return str(self.goal)
 
         def __repr__(self):
-            return str(self._element)
+            return "VERTEX ({}, {})".format(self.idx,self.goal)
+
+            # return str(self.goal)
         
     #------------------------- nested Edge class -------------------------
     class Edge:
         """Lightweight edge structure for a graph."""
-        __slots__ = '_origin', '_destination', '_element'
+        # __slots__ = '_origin', '_destination', '_element'
     
-        def __init__(self, u, v, idx,rule_encoding=None,matching_dict=None):
+        def __init__(self, u, v, rule_encoding=None,matching_dict=None):
             """Do not call constructor directly. Use Graph's insert_edge(u,v,x)."""
             self._origin = u
             self._destination = v
-            self._element = x
+            self.rule_encoding = rule_encoding
+            self.matching_dict = matching_dict
     
         def endpoints(self):
             """Return (u,v) tuple for vertices u and v."""
@@ -47,18 +51,18 @@ class Graph:
             return self._destination if v is self._origin else self._origin
             raise ValueError('v not incident to edge')
     
-        def element(self):
-            """Return element associated with this edge."""
-            return self._element
+        # def element(self):
+        #     """Return element associated with this edge."""
+        #     return self._element
     
         def __hash__(self):         # will allow edge to be a map/set key
             return hash( (self._origin, self._destination) )
 
         def __str__(self):
-            return '({0},{1},{2})'.format(self._origin,self._destination,self._element)
+            return '({0},{1},{2},{3})'.format(self._origin,self._destination,self.rule_encoding,self.matching_dict)
 
         def __repr__(self):
-            return '({0},{1},{2})'.format(self._origin,self._destination,self._element)
+            return 'EDGE: ({0},{1},{2},{3})'.format(self._origin,self._destination,self.rule_encoding,self.matching_dict)
         
     #------------------------- Graph methods -------------------------
     def __init__(self, directed=False):
@@ -69,6 +73,12 @@ class Graph:
         self._outgoing = {}
         # only create second map for directed graph; use alias for undirected
         self._incoming = {} if directed else self._outgoing
+
+    def __str__(self):
+        result = []
+        for each in self.edges():
+            result.append(str(each) + "\n")
+        return "".join(result)
 
     def _validate_vertex(self, v):
         """Verify that v is a Vertex of this graph."""
@@ -132,13 +142,14 @@ class Graph:
 
     def insert_vertex(self, x=None):
         """Insert and return a new Vertex with element x."""
-        v = self.Vertex(x)  #create a new instance in the vertex class
+        idx = len(self._outgoing)
+        v = self.Vertex(idx,x)  #create a new instance in the vertex class
         self._outgoing[v] = {}
         if self.is_directed():
             self._incoming[v] = {}        # need distinct map for incoming edges
         return v
             
-    def insert_edge(self, u, v, x=None):
+    def insert_edge(self, u, v, rule_encoding=None,matching_dict=None):
         """Insert and return a new Edge from u to v with auxiliary element x.
 
         Raise a ValueError if u and v are not vertices of the graph.
@@ -146,16 +157,56 @@ class Graph:
         """
         if self.get_edge(u, v) is not None:      # includes error checking
             raise ValueError('u and v are already adjacent')
-        e = self.Edge(u, v, x)
+        e = self.Edge(u, v, rule_encoding,matching_dict)
         self._outgoing[u][v] = e
         self._incoming[v][u] = e
+        return e
+    
+    def idx_to_vertex(self,idx):
+        # input: idx of a vertex
+        # return the vertex
+        if len(self._outgoing)==0 or idx>=len(self._incoming):
+            raise ValueError('vertex DNE')
+        for i in self.outgoing.keys():
+            if i.idx==idx:
+                return i
+        return None
+        # raise ValueError('vertex DNE')
+        
+    def goal_to_vertex(self,goal):
+        # input: goal of a vertex
+        # return the vertex
+        if len(self._outgoing)==0:
+            raise ValueError('vertex DNE')
+        for i in self._outgoing.keys():
+            if i.goal==goal:
+                return i
+        return None
+        # raise ValueError('vertex DNE')
 
+    def encoding_to_edge(self,rule_encoding):
+        # input: encoding of a edge
+        # return :the corresponding edge if the edge exists, none otherwise
+        edges = list(self.edges())
+        u = None
+        v = None
+        for i in range(len(edges)):
+            if edges[i].rule_encoding==rule_encoding:
+                u = edges[i]._origin
+                v = edges[i]._destination
+                break
+        if u!=None and v!= None:
+            return get_edge(u,v)
+        return None
+    
+    def first_vertex_without_goal(self):
+        # return the vertex with the smallest idx that is without goal
+        vertices=sorted(self.vertices(), key = lambda u: u.idx)
+        for i in range(vertices):
+            if vertices[i].goal==None or vertices[i].goal=="":
+                return self._outgoing[vertices[i]]
+        return None
 
-    def __str__(self):
-        result = []
-        for each in self.edges():
-            result.append(str(each) + "\n")
-        return "".join(result)
 
 
 # def main():

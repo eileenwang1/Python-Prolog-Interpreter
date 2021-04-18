@@ -4,20 +4,6 @@
 # the output should be stored globally, but how to store the sources of output?
 import re
 from graph import Graph 
-# class Node(object):
-#     def __init__(self,idx):
-#         self.idx = idx
-#         self.goal = ""
-#         self.yield_value=None
-
-#     def __str__(self):
-#         return "Node: idx = {}, goal = {}, yield_value = {}\n".format(self.idx,self.goal, self.yield_value)
-
-# class Edge():
-#     def __init__(idx):
-#         self.idx = idx
-#         self.rule_encoding = ""
-#         self.matching_dict = {}
 
 class HtmlParser(object):
     def __init__(self, src_filename):
@@ -53,23 +39,39 @@ def html_parser(html_filename):
     html_file = open(html_filename,'r')
     to_parse = html_file.readlines()
     html_file.close()
-
+    counter = 0
     for curr_line in to_parse:
         curr_line = curr_line.strip()
+        counter += 1
 
         if curr_line[:7]=="<query ":
             goal = extract_goal(curr_line[7:])
             and_stack.append(goal)
+            if counter == 1:
+                g.insert_vertex(goal)
+            else:
+                # find first vertex without goal
+                try:
+                    g.first_vertex_without_goal().goal = goal
+                except Exception:
+                    print(Exception)
+
+            # # add new vertex in the graph (with current goal)
+            # curr_vertex = g.insert_vertex(goal)
+            # # check whether there is edge that leads to the goal
+            # if len(output_dict)!=0:
+
             # # modification of node_list
             # new_node = Node(len(node_list))
             # new_node.goal = goal
             # node_list.append(new_node)
-            
+
         elif curr_line == "</query>":
             try:
                 and_stack.pop()
             except Exception:
                 print(Exception)
+                return
         elif curr_line.find("<forloop ")!=-1:
             start_idx = curr_line.find("<forloop ")+len("<forloop ")
             rule = curr_line[start_idx:].strip()
@@ -80,12 +82,31 @@ def html_parser(html_filename):
                 or_stack.pop()
             except Exception:
                 print(Exception)
+                return
+
         elif curr_line.find("<matching_head matchinghead=\"")!=-1:
             start_idx = curr_line.find("<matching_head matchinghead=\"")+len("<matching_head matchinghead=\"")
             matching_str = curr_line[start_idx:]
             matching_str = matching_str.strip()
             matching_dict = extract_key_value_pair(matching_str)
             encoding = "-".join(or_stack)
+            if len(and_stack)==0:
+                raise ValueError("and-stack empty")
+            # if edge does not exist, add edge and the matching
+            if g.encoding_to_edge(encoding)==None:
+                curr_goal = and_stack[-1]
+                curr_vertex = g.goal_to_vertex(curr_goal)
+                new_vertex = g.insert_vertex()
+                curr_edge = g.insert_edge(curr_vertex,new_vertex,encoding,matching_dict)
+            # if edge exists, add matching to the edge
+            else:
+                if g.encoding_to_edge(encoding).matching_dict!=None and g.encoding_to_edge(encoding).matching_dict!={}:
+                    for k in matching_dict.keys():
+                        value = g.encoding_to_edge(encoding).matching_dict.get(k)
+                        if value!=None and value != matching_dict[k]:
+                            raise ValueError("matching_dict value error")
+                g.encoding_to_edge(encoding).matching_dict = matching_dict
+            # modification of output_dict (to be commented out)     
             if output_dict.get(encoding)==None:
                 output_dict[encoding] = matching_dict
             else:
@@ -115,12 +136,13 @@ def html_parser(html_filename):
         #     continue
         #     # no modification
         print("CURR_LINE: ",curr_line)
-        print("AND_STACK:\n",and_stack)
-        print("OR_STACK:\n",or_stack)
-        print("OUTPUT_DICT:\n",output_dict)
-        for i in node_list:
-            print(i)
-        print("\n")
+        # print("AND_STACK:\n",and_stack)
+        # print("OR_STACK:\n",or_stack)
+        # print("OUTPUT_DICT:\n",output_dict)
+        print(g)
+        # for i in node_list:
+        #     print(i)
+        # print("\n")
     
 
 # input: a string in the form of 'index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">'
