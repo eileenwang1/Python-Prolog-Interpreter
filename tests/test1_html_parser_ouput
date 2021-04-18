@@ -1,0 +1,471 @@
+CURR_LINE:  <query goal="sibling ( mary, A ) ">
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ []
+OUTPUT_DICT:
+ {}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+
+
+CURR_LINE:  <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ ['0']
+OUTPUT_DICT:
+ {}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+
+
+CURR_LINE:  <matching_head matchinghead="{X: mary, Y: A}">
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ ['0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+
+
+CURR_LINE:  <query goal="parent_child ( Z, mary ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+
+
+CURR_LINE:  <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0', '0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+
+
+CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+
+
+CURR_LINE:  <matching_head matchinghead="{Z: tom_smith}">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = None
+
+
+
+CURR_LINE:  <yield output="parent_child ( tom_smith, mary ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+
+
+CURR_LINE:  <query goal="parent_child ( tom_smith, A ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  <matching_head matchinghead="{A: mary}">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = None
+
+
+
+CURR_LINE:  <yield output="parent_child ( tom_smith, mary ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = parent_child ( tom_smith, mary )
+
+
+
+CURR_LINE:  <yield output="sibling ( mary, mary ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, mary )
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, mary )
+
+
+
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, mary )
+
+
+
+CURR_LINE:  <matching_head matchinghead="{A: jack}">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, mary )
+
+
+
+CURR_LINE:  <yield output="parent_child ( tom_smith, jack ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = parent_child ( tom_smith, jack )
+
+
+
+CURR_LINE:  <yield output="sibling ( mary, jack ) ">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1', '2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )', 'parent_child ( tom_smith, A )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </query>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0', '1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0', '2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )', 'parent_child ( Z, mary )']
+OR_STACK:
+ ['0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </query>
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ ['0']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ []
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ ['1']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ []
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ ['2']
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </forloop>
+AND_STACK:
+ ['sibling ( mary, A )']
+OR_STACK:
+ []
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+
+CURR_LINE:  </query>
+AND_STACK:
+ []
+OR_STACK:
+ []
+OUTPUT_DICT:
+ {'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+Node: idx = 0, goal = sibling ( mary, A ), yield_value = None
+
+Node: idx = 1, goal = parent_child ( Z, mary ), yield_value = parent_child ( tom_smith, mary )
+
+Node: idx = 2, goal = parent_child ( tom_smith, A ), yield_value = sibling ( mary, jack )
+
+
+

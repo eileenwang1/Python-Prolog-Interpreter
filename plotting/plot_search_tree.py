@@ -2,7 +2,8 @@ from igraph import *
 # test3
 # output_dict={'0': {'X': 'X', 'Y': 'Y'}, '0-1': {'X': 'alice', 'Z': 'bob'}, '0-1-5': {'Y': 'charlie'}, '0-2': {'X': 'alice', 'Z': 'bertie'}, '0-2-4': {'Y': 'chuck'}, '0-3': {'X': 'charlie', 'Z': 'daisy'}, '0-4': {'X': 'bertie', 'Z': 'chuck'}, '0-4-6': {'Y': 'david'}, '0-5': {'X': 'bob', 'Z': 'charlie'}, '0-5-3': {'Y': 'daisy'}, '0-6': {'X': 'chuck', 'Z': 'david'}}
 # test1
-output_dict = {'0': {'X': 'mary', 'Y': 'X'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'X': 'mary'}, '0-1-2': {'X': 'jack'}}
+output_dict ={'0': {'X': 'mary', 'Y': 'A'}, '0-1': {'Z': 'tom_smith'}, '0-1-1': {'A': 'mary'}, '0-1-2': {'A': 'jack'}}
+
 
 key_list = list(output_dict.keys())
 key_list.sort()

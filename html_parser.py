@@ -3,6 +3,25 @@
 # for loops are the or-stack
 # the output should be stored globally, but how to store the sources of output?
 import re
+class Node(object):
+    def __init__(self,idx):
+        self.idx = idx
+        self.goal = ""
+        self.yield_value=None
+
+    def __str__(self):
+        return "Node: idx = {}, goal = {}, yield_value = {}\n".format(self.idx,self.goal, self.yield_value)
+
+class Edge():
+    def __init__(idx):
+        self.idx = idx
+        self.rule_encoding = -1
+        self.matching_dict = {}
+
+class HtmlParser(object):
+    def __init__(self, src_filename):
+        pass
+
 def output_to_html(src_filename):
     dst_filename = src_filename+".html"
     to_write = []
@@ -23,6 +42,7 @@ def html_parser(html_filename):
     and_stack = []
     or_stack=[]
     output_dict={} 
+    node_list = []
     # a dictionary
     # key: (string of numbers) encoding of the OR-stack, 
     # value: dict of variable matching
@@ -35,7 +55,12 @@ def html_parser(html_filename):
         curr_line = curr_line.strip()
 
         if curr_line[:7]=="<query ":
-            and_stack.append(curr_line[7:])
+            goal = extract_goal(curr_line[7:])
+            and_stack.append(goal)
+            # modification of node_list
+            new_node = Node(len(node_list))
+            new_node.goal = goal
+            node_list.append(new_node)
         elif curr_line == "</query>":
             try:
                 and_stack.pop()
@@ -66,12 +91,32 @@ def html_parser(html_filename):
                         return
                     output_dict[encoding][k] = matching_dict[k]
 
-
-            
+        elif curr_line.find("<yield output=")!=-1:
+            yield_value = extract_yield_value(curr_line)
+            if len(and_stack)==0:
+                print("ERROR: and_stack empty when yield")
+                return
+            curr_goal = and_stack[-1]
+            curr_node=None
+            for i in range(len(node_list)):
+                if node_list[i].goal==curr_goal:
+                    curr_node = node_list[i]
+                    break
+            if curr_node==None:
+                print("ERROR: no corresponding node for yield output")
+                return
+            curr_node.yield_value = yield_value
+        else:
+            continue
+            # no modification
         print("CURR_LINE: ",curr_line)
         print("AND_STACK:\n",and_stack)
         print("OR_STACK:\n",or_stack)
-        print("OUTPUT_STACK:\n",output_dict)
+        print("OUTPUT_DICT:\n",output_dict)
+        for i in node_list:
+            print(i)
+        print("\n")
+    
 
 # input: a string in the form of 'index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">'
 # output: (char) index of the rule
@@ -96,12 +141,18 @@ def extract_key_value_pair(matching_str):
         matching_dict[key] = value
     return matching_dict
 
+def extract_goal(goal_text):
+    # 'goal="sibling ( mary, A ) ">'
+    goal_text = goal_text.strip()
+    to_return = goal_text[6:-2]
+    to_return = to_return.strip()
+    return to_return
 
-
-
-        
-
-
+def extract_yield_value(yield_text):
+    yield_text = yield_text.strip()
+    to_return = yield_text[15:-2]
+    to_return = to_return.strip()
+    return to_return
 
 if __name__ == '__main__':
     output_to_html("tests/test1_output")

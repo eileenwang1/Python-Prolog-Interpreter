@@ -2,7 +2,7 @@
 # Signifies our desired python version
 # Makefile macros (or variables) are defined a little bit differently than traditional bash, keep in mind that in the Makefile there's top-level Makefile-only syntax, and everything else is bash script syntax.
 PYTHON = python3
-TESTFILE = tests/test3
+TESTFILE = tests/test1
 # TESTFILE = tests/test2
 # TESTFILE = tests/test3
 # TESTFILE = tests/test4
@@ -44,9 +44,10 @@ test:
 
 test_prettyprint:
 	${PYTHON} test_prettyprint.py ${TESTFILE} > ${TESTFILE}_output
+
 	
-run:
-	${PYTHON} our_app.py
+# run:
+# 	${PYTHON} our_app.py
 
 # In this context, the *.project pattern means "anything that has the .project extension"
 clean:
