@@ -167,7 +167,7 @@ class Graph:
         # return the vertex
         if len(self._outgoing)==0 or idx>=len(self._incoming):
             raise ValueError('vertex DNE')
-        for i in self.outgoing.keys():
+        for i in self._outgoing.keys():
             if i.idx==idx:
                 return i
         return None
@@ -178,7 +178,9 @@ class Graph:
         # return the vertex
         if len(self._outgoing)==0:
             raise ValueError('vertex DNE')
+        # print("in goal_to_vertex")
         for i in self._outgoing.keys():
+            # print(i)
             if i.goal==goal:
                 return i
         return None
@@ -202,9 +204,9 @@ class Graph:
     def first_vertex_without_goal(self):
         # return the vertex with the smallest idx that is without goal
         vertices=sorted(self.vertices(), key = lambda u: u.idx)
-        for i in range(vertices):
+        for i in range(len(vertices)):
             if vertices[i].goal==None or vertices[i].goal=="":
-                return self._outgoing[vertices[i]]
+                return vertices[i]
         return None
 
 

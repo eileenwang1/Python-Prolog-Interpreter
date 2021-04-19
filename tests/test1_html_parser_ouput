@@ -8,16 +8,195 @@ CURR_LINE:  <matching_head matchinghead="{X: mary, Y: A}">
 CURR_LINE:  </matching_head>
 (VERTEX (0, sibling ( mary, A )),VERTEX (1, None),0,{'X': 'mary', 'Y': 'A'})
 
-<class 'Exception'>
 CURR_LINE:  <query goal="parent_child ( Z, mary ) ">
-(VERTEX (0, sibling ( mary, A )),VERTEX (1, None),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
 
 CURR_LINE:  <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
-(VERTEX (0, sibling ( mary, A )),VERTEX (1, None),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
 
 CURR_LINE:  </forloop>
-(VERTEX (0, sibling ( mary, A )),VERTEX (1, None),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
 
 CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
-(VERTEX (0, sibling ( mary, A )),VERTEX (1, None),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+
+CURR_LINE:  <matching_head matchinghead="{Z: tom_smith}">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, None),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </matching_head>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, None),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <yield output="parent_child ( tom_smith, mary ) ">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, None),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </yield>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, None),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <query goal="parent_child ( tom_smith, A ) ">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </forloop>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <matching_head matchinghead="{A: mary}">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </matching_head>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <yield output="parent_child ( tom_smith, mary ) ">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </yield>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <yield output="sibling ( mary, mary ) ">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </yield>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </forloop>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <matching_head matchinghead="{A: jack}">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </matching_head>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <yield output="parent_child ( tom_smith, jack ) ">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </yield>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <yield output="sibling ( mary, jack ) ">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </yield>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </forloop>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </query>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </forloop>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </forloop>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </query>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </forloop>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <forloop index="1" rule="parent_child ( tom_smith, mary )  :- TRUE">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </forloop>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  <forloop index="2" rule="parent_child ( tom_smith, jack )  :- TRUE">
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </forloop>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
+
+CURR_LINE:  </query>
+(VERTEX (0, sibling ( mary, A )),VERTEX (1, parent_child ( Z, mary )),0,{'X': 'mary', 'Y': 'A'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (3, None),0-1-1,{'A': 'mary'})
+(VERTEX (2, parent_child ( tom_smith, A )),VERTEX (4, None),0-1-2,{'A': 'jack'})
+(VERTEX (1, parent_child ( Z, mary )),VERTEX (2, parent_child ( tom_smith, A )),0-1,{'Z': 'tom_smith'})
 

@@ -1,0 +1,12 @@
+(VERTEX (0, grand_parent ( X, Y )),VERTEX (1, parent_child ( X, Z )),0,{'X': 'X', 'Y': 'Y'})
+(VERTEX (1, parent_child ( X, Z )),VERTEX (2, parent_child ( bob, Y )),0-1,{'X': 'alice', 'Z': 'bob'})
+(VERTEX (6, parent_child ( charlie, Y )),VERTEX (10, None),0-5-3,{'Y': 'daisy'})
+(VERTEX (1, parent_child ( X, Z )),VERTEX (4, parent_child ( daisy, Y )),0-2,{'X': 'alice', 'Z': 'bertie'})
+(VERTEX (1, parent_child ( X, Z )),VERTEX (6, parent_child ( charlie, Y )),0-3,{'X': 'charlie', 'Z': 'daisy'})
+(VERTEX (1, parent_child ( X, Z )),VERTEX (9, None),0-5,{'X': 'bob', 'Z': 'charlie'})
+(VERTEX (2, parent_child ( bob, Y )),VERTEX (3, parent_child ( bertie, Y )),0-1-5,{'Y': 'charlie'})
+(VERTEX (1, parent_child ( X, Z )),VERTEX (7, parent_child ( david, Y )),0-4,{'X': 'bertie', 'Z': 'chuck'})
+(VERTEX (1, parent_child ( X, Z )),VERTEX (11, None),0-6,{'X': 'chuck', 'Z': 'david'})
+(VERTEX (5, parent_child ( chuck, Y )),VERTEX (8, None),0-4-6,{'Y': 'david'})
+(VERTEX (3, parent_child ( bertie, Y )),VERTEX (5, parent_child ( chuck, Y )),0-2-4,{'Y': 'chuck'})
+
