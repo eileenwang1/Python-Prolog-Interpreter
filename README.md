@@ -1,3 +1,9 @@
+# April 19 update
+add graph data structure in html parser
+## todo:
+- check the correctness of the tree for test3
+- make the plotted tree prettier
+- proof: disjunctive normal form in a graph?
 # April 11 update
 Draw the search tree for variable mappings following a sequence of rules in the database.
 
