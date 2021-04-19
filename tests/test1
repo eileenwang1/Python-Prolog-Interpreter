@@ -1,4 +1,4 @@
-sibling(X, Y) :- parent_child(Z, X), parent_child(Z, Y).
+sibling(A, B) :- parent_child(C, A), parent_child(C, B).
 parent_child(tom_smith, mary).
 parent_child(tom_smith, jack).
 

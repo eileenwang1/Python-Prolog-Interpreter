@@ -14,10 +14,10 @@ for i in range(len(g.es)):
 print(edge_idx)
 u,v = g.get_edgelist()[edge_idx]
 print("u: {}, v: {}".format(u,v))
-# print(g.degree())
-# # layout = g.layout_circle()
-# # layout = g.layout("rt", [2])
-# # layout = g.layout_reingold_tilford(root=[2])
-# layout = g.layout("rt")
-# g.vs["label"] = g.vs["name"]
-# plot(g,layout=layout)
+print(g.degree())
+# layout = g.layout_circle()
+# layout = g.layout("rt", [2])
+# layout = g.layout_reingold_tilford(root=[2])
+layout = g.layout("rt")
+g.vs["label"] = g.vs["name"]
+plot(g,layout=layout)
