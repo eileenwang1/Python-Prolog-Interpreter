@@ -44,15 +44,18 @@ class HtmlParser(object):
         for curr_line in to_parse:
             curr_line = curr_line.strip()
             counter += 1
-
+            # print("\n")
             if curr_line[:7]=="<query ":
                 goal = extract_goal(curr_line[7:])
                 and_stack.append(goal)
                 if counter == 1:
                     self.graph.insert_vertex(goal)
-                else:
-                    # find first vertex without goal
-                    self.graph.first_vertex_without_goal().goal = goal
+                # else:
+                #     # find first vertex without goal
+                #     v = self.graph.first_vertex_without_goal()
+                #     v.goal = goal
+                #     print("first_vertex without goal: ",v)
+
 
             elif curr_line == "</query>":
                 try:
@@ -82,13 +85,34 @@ class HtmlParser(object):
                     raise ValueError("and-stack empty")
                 # if edge does not exist, add edge and the matching
                 if self.graph.encoding_to_edge(encoding)==None:
-                    curr_goal = and_stack[-1]
-                    curr_vertex = self.graph.goal_to_vertex(curr_goal)
-                    new_vertex = self.graph.insert_vertex()
+                    print("encoding: ",encoding)
+                    if "-" in encoding:
+                        prev_encoding = get_prev_encoding(encoding)
+                        print("prev_encoding: ",prev_encoding)
+                        if prev_encoding==None:
+                            raise ValueError("can't find prev_encoding")
+                        prev_edge = self.graph.encoding_to_edge(prev_encoding)
+                        if prev_edge==None:
+                            raise ValueError("can't find prev_edge")
+                        u,v = prev_edge.endpoints()
+                        if u.idx>v.idx:
+                            curr_vertex = u
+                        else:
+                            curr_vertex = v 
+                        if curr_vertex.goal==None:
+                            curr_vertex.goal = and_stack[-1]
+                        print("curr_vertex: ",curr_vertex)  
+                                  
+                    else:
+                        curr_goal = and_stack[-1]
+                        curr_vertex = self.graph.goal_to_vertex(curr_goal)
+                        # print(encoding)
                     # print("curr_vertex: {},type:{}",curr_vertex,type(curr_vertex))
                     # print("new_vertex: {},type:{}",new_vertex,type(new_vertex))
-
+                    # print(curr_vertex)
+                    new_vertex = self.graph.insert_vertex()
                     curr_edge = self.graph.insert_edge(curr_vertex,new_vertex,encoding,matching_dict)
+                    print(curr_edge)
                 # if edge exists, add matching to the edge
                 else:
                     if self.graph.encoding_to_edge(encoding).matching_dict!=None and self.graph.encoding_to_edge(encoding).matching_dict!={}:
@@ -155,8 +179,21 @@ def extract_yield_value(yield_text):
     to_return = to_return.strip()
     return to_return
 
+def get_prev_encoding(encoding):
+    i = -1
+    while i!= 0-len(encoding):
+        if encoding[i]=='-':
+            return encoding[:i]
+        i -= 1
+
+    # for i in range(-len(encoding),0):
+    #     if encoding[i]=='-':
+    #         return encoding[:i]
+    return None
+
 if __name__ == '__main__':
     hp = HtmlParser("tests/test3_output")
-    print(hp.html_to_graph())
+    to_print = hp.html_to_graph()
+    print(to_print)
     # output_to_html("tests/test3_output")
     # html_parser("tests/test3_output.html")

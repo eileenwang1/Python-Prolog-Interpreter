@@ -68,10 +68,10 @@ class PlotGraph(object):
         # todo: label of vertives is subject to change
         # g.vs['label'] = [i for i in range(len(g.vs))]
         # plot(g, "social_network.pdf", **visual_style)
-        igraph.plot(self.plotted,"test1_plot.png",**visual_style)
+        igraph.plot(self.plotted,"test3_plot.png",**visual_style)
 
 if __name__ == '__main__':
-    hp = HtmlParser("tests/test1_output")
+    hp = HtmlParser("tests/test3_output")
     to_plot = hp.html_to_graph()
     # print(to_plot)
     pg = PlotGraph(to_plot)

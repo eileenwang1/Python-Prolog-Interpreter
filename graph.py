@@ -26,6 +26,11 @@ class Graph:
         def __repr__(self):
             return "VERTEX ({}, {})".format(self.idx,self.goal)
 
+        def __ge__(self,v2):
+            if not instance(v2,Vertex):
+                raise ValueError("not a vertex to compare")
+            return self.idx >= v2.idx
+
             # return str(self.goal)
         
     #------------------------- nested Edge class -------------------------
@@ -62,7 +67,13 @@ class Graph:
             return '({0},{1},{2},{3})'.format(self._origin,self._destination,self.rule_encoding,self.matching_dict)
 
         def __repr__(self):
-            return 'EDGE: ({0},{1},{2},{3})'.format(self._origin,self._destination,self.rule_encoding,self.matching_dict)
+            if self._origin < self._destination:
+                u = self._origin
+                v = self._destination
+            else:
+                u = self._destination
+                v = self._origin
+            return 'EDGE: ({0},{1},{2},{3})'.format(u,v,self.rule_encoding,self.matching_dict)
         
     #------------------------- Graph methods -------------------------
     def __init__(self, directed=False):
@@ -75,8 +86,19 @@ class Graph:
         self._incoming = {} if directed else self._outgoing
 
     def __str__(self):
+        def edge_key(e):
+            if e._origin.idx < e._destination.idx:
+                u = e._origin
+                v = e._destination
+            else:
+                u = e._destination
+                v = e._origin
+            return u.idx
+                
+        edges = list(self.edges())
+        sorted_edges = sorted(edges,key=lambda x:edge_key(x))
         result = []
-        for each in self.edges():
+        for each in sorted_edges:
             result.append(str(each) + "\n")
         return "".join(result)
 
@@ -190,15 +212,9 @@ class Graph:
         # input: encoding of a edge
         # return :the corresponding edge if the edge exists, none otherwise
         edges = list(self.edges())
-        u = None
-        v = None
         for i in range(len(edges)):
             if edges[i].rule_encoding==rule_encoding:
-                u = edges[i]._origin
-                v = edges[i]._destination
-                break
-        if u!=None and v!= None:
-            return get_edge(u,v)
+                return edges[i]
         return None
     
     def first_vertex_without_goal(self):
