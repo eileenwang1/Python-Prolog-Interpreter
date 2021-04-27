@@ -19,6 +19,8 @@ def test_prettyprint(filename):
         line = f.readline()
     f.close()
     solver = Solver(rules_text)
+    rules = solver.database.rules
+    print(rules)
     solution = solver.find_solutions(goal_text)
     
 

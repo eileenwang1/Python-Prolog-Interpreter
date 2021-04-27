@@ -28,9 +28,15 @@ class Graph:
             return "VERTEX ({}, {})".format(self.idx,self.goal)
 
         def __ge__(self,v2):
-            if not instance(v2,Vertex):
+            if not isinstance(v2,type(self)):
                 raise ValueError("not a vertex to compare")
             return self.idx >= v2.idx
+        
+        def __eq__(self,v2):
+            if not isinstance(v2,type(self)):
+                raise ValueError("not a vertex to compare")
+            return self.idx==v2.idx and self.goal==v2.goal and self.proof_tree==v2.proof_tree
+
 
             # return str(self.goal)
         
@@ -68,7 +74,7 @@ class Graph:
             return '({0},{1},{2},{3})'.format(self._origin,self._destination,self.rule_encoding,self.matching_dict)
 
         def __repr__(self):
-            if self._origin < self._destination:
+            if self._origin.idx < self._destination.idx:
                 u = self._origin
                 v = self._destination
             else:
@@ -102,6 +108,29 @@ class Graph:
         for each in sorted_edges:
             result.append(str(each) + "\n")
         return "".join(result)
+    
+    def size(self):
+        return len(self.vertices())
+    
+    def dfs(self,start_node):
+        # retrun an iteration in the dfs order
+        def dfs_inner(start_node,visited):
+            visited.append(start_node)
+            adj_list = list(self._outgoing[start_node].keys())
+            for i in range(len(adj_list)):
+                has_visited = False
+                for j in visited:
+                    if j == adj_list[i]:
+                        has_visited = True
+                        break
+                if not has_visited:
+                    dfs_inner(adj_list[i],visited)
+            return visited
+
+        if len(self._outgoing)==0:
+            return []
+        to_return = dfs_inner(start_node,[])
+        return to_return
 
     def _validate_vertex(self, v):
         """Verify that v is a Vertex of this graph."""
@@ -184,6 +213,11 @@ class Graph:
         self._outgoing[u][v] = e
         self._incoming[v][u] = e
         return e
+
+    def find_root(self):
+        if self.size()==0:
+            return None
+        return self.idx_to_vertex(0)
     
     def idx_to_vertex(self,idx):
         # input: idx of a vertex

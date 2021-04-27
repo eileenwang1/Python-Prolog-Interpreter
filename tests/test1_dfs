@@ -1,0 +1,23 @@
+dfs_inner(VERTEX (0, sibling ( mary, X )),[])
+adj_list:  [VERTEX (1, parent_child ( C, mary ))]
+curr_node:  VERTEX (1, parent_child ( C, mary ))
+dfs_inner(VERTEX (1, parent_child ( C, mary )),[VERTEX (0, sibling ( mary, X ))])
+adj_list:  [VERTEX (0, sibling ( mary, X )), VERTEX (2, parent_child ( tom_smith, X ))]
+curr_node:  VERTEX (0, sibling ( mary, X ))
+curr_node:  VERTEX (2, parent_child ( tom_smith, X ))
+dfs_inner(VERTEX (2, parent_child ( tom_smith, X )),[VERTEX (0, sibling ( mary, X )), VERTEX (1, parent_child ( C, mary ))])
+adj_list:  [VERTEX (1, parent_child ( C, mary )), VERTEX (3, None), VERTEX (4, None)]
+curr_node:  VERTEX (1, parent_child ( C, mary ))
+curr_node:  VERTEX (3, None)
+dfs_inner(VERTEX (3, None),[VERTEX (0, sibling ( mary, X )), VERTEX (1, parent_child ( C, mary )), VERTEX (2, parent_child ( tom_smith, X ))])
+adj_list:  [VERTEX (2, parent_child ( tom_smith, X ))]
+curr_node:  VERTEX (2, parent_child ( tom_smith, X ))
+curr_node:  VERTEX (4, None)
+dfs_inner(VERTEX (4, None),[VERTEX (0, sibling ( mary, X )), VERTEX (1, parent_child ( C, mary )), VERTEX (2, parent_child ( tom_smith, X )), VERTEX (3, None)])
+adj_list:  [VERTEX (2, parent_child ( tom_smith, X ))]
+curr_node:  VERTEX (2, parent_child ( tom_smith, X ))
+VERTEX (0, sibling ( mary, X ))
+VERTEX (1, parent_child ( C, mary ))
+VERTEX (2, parent_child ( tom_smith, X ))
+VERTEX (3, None)
+VERTEX (4, None)

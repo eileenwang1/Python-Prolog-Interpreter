@@ -1,12 +1,12 @@
-from linked_queue import LinkedQueue
 
-class Tree:
+
+class ProofTree:
     class TreeNode:
-        def __init__(self, element, parent = None, left = None, right = None):
+        def __init__(self, element="", children=[],parent = None):
             self._parent = parent
             self._element = element
-            self._left = left
-            self._right = right
+            self.children = children
+            self.is_true = False
 
     #-------------------------- binary tree constructor --------------------------
     def __init__(self):
@@ -102,40 +102,13 @@ class Tree:
         """Return node's parent (or None if node is the root)."""
         return node._parent
 
-    def left(self, node):
-        """Return node's left child (or None if no left child)."""
-        return node._left
-
-    def right(self, node):
-        """Return node's right child (or None if no right child)."""
-        return node._right
-
     def children(self, node):
         """Generate an iteration of nodes representing node's children."""
-        if node._left is not None:
-            yield node._left
-        if node._right is not None:
-            yield node._right
+        return node.children
 
     def num_children(self, node):
         """Return the number of children of a given node."""
-        count = 0
-        if node._left is not None:     # left child exists
-            count += 1
-        if node._right is not None:    # right child exists
-            count += 1
-        return count
-
-    def sibling(self, node):
-        """Return a node representing given node's sibling (or None if no sibling)."""
-        parent = node._parent
-        if parent is None:                    # p must be the root
-            return None                         # root has no sibling
-        else:
-            if node == parent._left:
-                return parent._right         # possibly None
-            else:
-                return parent._left         # possibly None
+        return len(node.children)
 
     #-------------------------- nonpublic mutators --------------------------
     def add_root(self, e):
@@ -146,32 +119,14 @@ class Tree:
         if self._root is not None:
             raise ValueError('Root exists')
         self._size = 1
-        self._root = self.TreeNode(e)
+        self._root = self.TreeNode(element=e)
         return self._root
 
-    def add_left(self, node, e):
-        """Create a new left child for a given node, storing element e in the new node.
-
-        Return the new node.
-        Raise ValueError if node already has a left child.
-        """
-        if node._left is not None:
-            raise ValueError('Left child exists')
-        self._size += 1
-        node._left = self.TreeNode(e, node)             # node is its parent
-        return node._left
-
-    def add_right(self, node, e):
-        """Create a new right child for a given node, storing element e in the new node.
-
-        Return the new node.
-        Raise ValueError if node already has a right child.
-        """
-        if node._right is not None:
-            raise ValueError('Right child exists')
-        self._size += 1
-        node._right = self.TreeNode(e, node)            # node is its parent
-        return node._right
+    def add_children(self,node,element_list):
+        for i in range(len(element_list)):
+            self.size += 1
+            new_node = self.TreeNode(element=element_list[i],parent=node)
+            self.node.children.append(new_node)
 
     def _replace(self, node, e):
         """Replace the element at given node with e, and return the old element."""
@@ -226,49 +181,49 @@ class Tree:
             t2._root = None             # set t2 instance to empty
             t2._size = 0
 
-    def preorderPrint(self,node):
-        if node is not None:
-            print("from PreorderPrint:",node._element)
-        if node._left is not None:
-            self.preorderPrint(node._left)
-        if node._right is not None:
-            self.preorderPrint(node._right)
+    # def preorderPrint(self,node):
+    #     if node is not None:
+    #         print("from PreorderPrint:",node._element)
+    #     if node._left is not None:
+    #         self.preorderPrint(node._left)
+    #     if node._right is not None:
+    #         self.preorderPrint(node._right)
 
-    def postorderPrint(self,node):
-        if node._left is not None:
-            self.postorderPrint(node._left)
-        if node._right is not None:
-            self.postorderPrint(node._right)
-        if node is not None:
-            print("from PostorderPrint:",node._element)
+    # def postorderPrint(self,node):
+    #     if node._left is not None:
+    #         self.postorderPrint(node._left)
+    #     if node._right is not None:
+    #         self.postorderPrint(node._right)
+    #     if node is not None:
+    #         print("from PostorderPrint:",node._element)
 
-    def inorderPrint(self,node):
-        if node._left is not None:
-            self.inorderPrint(node._left)
-        if node is not None:
-            print("from InorderPrint:",node._element)
-        if node._right is not None:
-            self.inorderPrint(node._right)
+    # def inorderPrint(self,node):
+    #     if node._left is not None:
+    #         self.inorderPrint(node._left)
+    #     if node is not None:
+    #         print("from InorderPrint:",node._element)
+    #     if node._right is not None:
+    #         self.inorderPrint(node._right)
 
-    def levelorderPrint(self, node):
-        '''
-        @node: a given TreeNode.
+    # def levelorderPrint(self, node):
+    #     '''
+    #     @node: a given TreeNode.
 
-        Prints all the elements with level order traversal, starting at the given node.
+    #     Prints all the elements with level order traversal, starting at the given node.
 
-        @return: nothing.
-        '''
-        q = LinkedQueue()
-        q.enqueue(node)
-        while not q.is_empty():
-            temp = q.dequeue()
-            print(temp._element)
+    #     @return: nothing.
+    #     '''
+    #     q = LinkedQueue()
+    #     q.enqueue(node)
+    #     while not q.is_empty():
+    #         temp = q.dequeue()
+    #         print(temp._element)
 
-            if temp._left is not None:
-                q.enqueue(temp._left)
+    #         if temp._left is not None:
+    #             q.enqueue(temp._left)
 
-            if temp._right is not None:
-                q.enqueue(temp._right)
+    #         if temp._right is not None:
+    #             q.enqueue(temp._right)
 
 
 
@@ -313,32 +268,6 @@ class Tree:
             temp = temp._parent
         return to_return
 
-    def return_max(self):
-        '''
-        @return: maximum value stored within a given tree.
-        '''
-        pass
-
-    def flip_node(self, node):
-        '''
-        @node: a given TreeNode.
-
-        flips the left and right children of a given node.
-
-        @return: nothing, modify self Tree.
-        '''
-        pass
-
-    def flip_tree(self, node = None):
-        '''
-        @node: a given TreeNode.
-
-        flips the left and right children all nodes in the subtree of given node, 
-        and if p is omitted it flips the entire tree
-
-        @return: nothing, modify self.
-        '''
-        pass
 
 
 
@@ -490,7 +419,7 @@ def main():
     print("Tree 1 after flip_tree:")
     #pretty_print(t)
 
-main()
+# main()
 
 
 

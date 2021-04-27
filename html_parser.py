@@ -85,10 +85,8 @@ class HtmlParser(object):
                     raise ValueError("and-stack empty")
                 # if edge does not exist, add edge and the matching
                 if self.graph.encoding_to_edge(encoding)==None:
-                    print("encoding: ",encoding)
                     if "-" in encoding:
                         prev_encoding = get_prev_encoding(encoding)
-                        print("prev_encoding: ",prev_encoding)
                         if prev_encoding==None:
                             raise ValueError("can't find prev_encoding")
                         prev_edge = self.graph.encoding_to_edge(prev_encoding)
@@ -101,18 +99,12 @@ class HtmlParser(object):
                             curr_vertex = v 
                         if curr_vertex.goal==None:
                             curr_vertex.goal = and_stack[-1]
-                        print("curr_vertex: ",curr_vertex)  
                                   
                     else:
                         curr_goal = and_stack[-1]
                         curr_vertex = self.graph.goal_to_vertex(curr_goal)
-                        # print(encoding)
-                    # print("curr_vertex: {},type:{}",curr_vertex,type(curr_vertex))
-                    # print("new_vertex: {},type:{}",new_vertex,type(new_vertex))
-                    # print(curr_vertex)
                     new_vertex = self.graph.insert_vertex()
                     curr_edge = self.graph.insert_edge(curr_vertex,new_vertex,encoding,matching_dict)
-                    print(curr_edge)
                 # if edge exists, add matching to the edge
                 else:
                     if self.graph.encoding_to_edge(encoding).matching_dict!=None and self.graph.encoding_to_edge(encoding).matching_dict!={}:
@@ -127,8 +119,7 @@ class HtmlParser(object):
                 else:
                     for k in matching_dict.keys():
                         if output_dict.get(k)!=None and output_dict.get(k)!=matching_dict[k]:
-                            print("ERROR adding to output dict")
-                            return
+                            raise ValueError("ERROR adding to output dict")
                         output_dict[encoding][k] = matching_dict[k]
 
             # elif curr_line.find("<yield output=")!=-1:
@@ -155,8 +146,8 @@ def extract_key_value_pair(matching_str):
         matching_str = matching_str[1:]
         matching_str = matching_str[:-3]
     else:
-        print("ERROR parsing matching_str")
-        return
+        raise ValueError("ERROR parsing matching_str")
+        # return
     matching_list = matching_str.split(",")
     matching_dict = {}
     for i in range(len(matching_list)):
@@ -193,7 +184,12 @@ def get_prev_encoding(encoding):
 
 if __name__ == '__main__':
     hp = HtmlParser("tests/test3_output")
-    to_print = hp.html_to_graph()
-    print(to_print)
+    g = hp.html_to_graph()
+    start_node = g.idx_to_vertex(0)
+    from_dfs = g.dfs(start_node)
+    for i in from_dfs:
+        print(i)
+    
+    # print(to_print)
     # output_to_html("tests/test3_output")
     # html_parser("tests/test3_output.html")
