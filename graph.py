@@ -7,10 +7,11 @@ class Graph:
         """Lightweight vertex structure for a graph."""
         # __slots__ = '_element'
     
-        def __init__(self, idx, goal=None):
+        def __init__(self, idx, goal=None,proof_tree=None):
             """Do not call constructor directly. Use Graph's insert_vertex(x)."""
             self.goal = goal
             self.idx = idx
+            self.proof_tree = proof_tree
 
         # def element(self):
         #     """Return element associated with this vertex."""
