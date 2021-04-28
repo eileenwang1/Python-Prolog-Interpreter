@@ -259,6 +259,22 @@ class Graph:
             if vertices[i].goal==None or vertices[i].goal=="":
                 return vertices[i]
         return None
+    
+    def incoming_edge(self,v):
+        # find the edge that connects v to a vertex of smaller idx
+        incident_edges = self.incident_edges(v)
+        incident_edges = list(incident_edges)
+        curr_idx = v.idx
+        curr_edge = None
+        for i in range(len(incident_edges)):
+            u,v = incident_edges[i].endpoints()
+            if u.idx<=curr_idx and v.idx<=curr_idx:
+                curr_edge = incident_edges[i]
+                return curr_edge
+        return curr_edge
+
+                
+
 
 
 

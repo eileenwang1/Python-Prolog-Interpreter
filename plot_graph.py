@@ -71,7 +71,7 @@ class PlotGraph(object):
         igraph.plot(self.plotted,"test3_plot.png",**visual_style)
 
 if __name__ == '__main__':
-    hp = HtmlParser("tests/test3_output")
+    hp = HtmlParser("tests/test5_output")
     to_plot = hp.html_to_graph()
     # print(to_plot)
     pg = PlotGraph(to_plot)

@@ -81,7 +81,6 @@ class ProofTree:
           for other in self._subtree_inorder(node._right):
             yield other
 
-
     def breadthfirst(self):
         """Generate a breadth-first iteration of the nodes of the tree."""
         if not self.is_empty():
@@ -110,8 +109,30 @@ class ProofTree:
         """Return the number of children of a given node."""
         return len(node.children)
 
+    def get_element(self,node):
+        return node._element
+
+    def set_element(self,node,new_element):
+        node._element = new_element
+    
+    def set_true(self):
+        node_list = list(self.postorder())
+        
+        for i in range(len(node_list)):
+            clause = self.get_element(node_list[i])
+            if clause.has_variable() is False:
+                if self.is_leaf(node_list[i]):
+                    node_list[i].is_true = True
+                else:
+                    subtree_list = self._subtree_postorder(node_list[i])
+                    for j in subtree_list:
+                        if j.is_true is False:
+                            return
+                    node_list[i].is_true = True
+                    
+
     #-------------------------- nonpublic mutators --------------------------
-    def add_root(self, e):
+    def add_root(self, e=None):
         """Place element e at the root of an empty tree and return the root node.
 
         Raise ValueError if tree nonempty.
@@ -124,9 +145,9 @@ class ProofTree:
 
     def add_children(self,node,element_list):
         for i in range(len(element_list)):
-            self.size += 1
+            self._size += 1
             new_node = self.TreeNode(element=element_list[i],parent=node)
-            self.node.children.append(new_node)
+            node.children.append(new_node)
 
     def _replace(self, node, e):
         """Replace the element at given node with e, and return the old element."""

@@ -151,6 +151,8 @@ def extract_key_value_pair(matching_str):
     matching_list = matching_str.split(",")
     matching_dict = {}
     for i in range(len(matching_list)):
+        if matching_list[i] =="":
+            continue
         matching_list[i] = matching_list[i].split(":")
         key = matching_list[i][0].strip()
         value = matching_list[i][1].strip()

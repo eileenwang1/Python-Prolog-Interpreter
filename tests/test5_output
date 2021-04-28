@@ -1,0 +1,161 @@
+[great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) , grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) , parent ( alice, bob )  :- TRUE, parent ( bob, charlie )  :- TRUE, parent ( charlie, daisy )  :- TRUE]
+query:  great_grand_parent ( X, daisy ) 
+query.arguments:  [X, daisy]
+<query goal="great_grand_parent ( X, daisy ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+<matching_head matchinghead="{A: X, D: daisy}"> 
+</matching_head>
+<query goal="parent ( X, B ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+<matching_head matchinghead="{X: alice, B: bob}"> 
+</matching_head>
+<yield output="parent ( alice, bob ) ">
+</yield>
+<query goal="grand_parent ( bob, daisy ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+<matching_head matchinghead="{A: bob, C: daisy}"> 
+</matching_head>
+<query goal="parent ( bob, B ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+<matching_head matchinghead="{B: charlie}"> 
+</matching_head>
+<yield output="parent ( bob, charlie ) ">
+</yield>
+<query goal="parent ( charlie, daisy ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+<matching_head matchinghead="{}"> 
+</matching_head>
+<yield output="parent ( charlie, daisy ) ">
+</yield>
+<yield output="grand_parent ( bob, daisy ) ">
+</yield>
+<yield output="great_grand_parent ( alice, daisy ) ">
+</yield>
+</forloop>
+</query>
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+</forloop>
+</query>
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+</forloop>
+</query>
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+<matching_head matchinghead="{X: bob, B: charlie}"> 
+</matching_head>
+<yield output="parent ( bob, charlie ) ">
+</yield>
+<query goal="grand_parent ( charlie, daisy ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+<matching_head matchinghead="{A: charlie, C: daisy}"> 
+</matching_head>
+<query goal="parent ( charlie, B ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+<matching_head matchinghead="{B: daisy}"> 
+</matching_head>
+<yield output="parent ( charlie, daisy ) ">
+</yield>
+<query goal="parent ( daisy, daisy ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+</forloop>
+</query>
+</forloop>
+</query>
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+</forloop>
+</query>
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+<matching_head matchinghead="{X: charlie, B: daisy}"> 
+</matching_head>
+<yield output="parent ( charlie, daisy ) ">
+</yield>
+<query goal="grand_parent ( daisy, daisy ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+<matching_head matchinghead="{A: daisy, C: daisy}"> 
+</matching_head>
+<query goal="parent ( daisy, B ) ">
+<forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+</forloop>
+</query>
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+</forloop>
+</query>
+</forloop>
+</query>
+</forloop>
+<forloop index="1" rule="grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ">
+</forloop>
+<forloop index="2" rule="parent ( alice, bob )  :- TRUE">
+</forloop>
+<forloop index="3" rule="parent ( bob, charlie )  :- TRUE">
+</forloop>
+<forloop index="4" rule="parent ( charlie, daisy )  :- TRUE">
+</forloop>
+</query>
+matching_query_term:  great_grand_parent ( alice, daisy ) 
+solutions_map:  defaultdict(<class 'list'>, {'X': [alice]})

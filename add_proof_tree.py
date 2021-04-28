@@ -2,64 +2,65 @@ from proof_tree import ProofTree
 from graph import Graph
 from html_parser import HtmlParser
 import copy
+import re
+VARIABLE_REGEX = r"^[A-Z_][A-Za-z0-9_]*$"
+
+class Clause(object):
+    def __init__(self,functor, arguments=[]):
+        self.functor = functor.strip()
+        self.arguments = [i.strip() for i in arguments]
+
+    def __str__(self):
+        argument_string = ",".join(self.arguments)
+        to_return = "{}({})".format(self.functor,argument_string)
+        return to_return
+
+    def __eq__(self,c2):
+        if not isinstance(c2,Clause):
+            raise ValueError("input not a clause")
+        return self.functor==c2.functor and self.arguments==c2.functor    
+
+    def match_functor(self,clause2):
+        # Clause -> Clause -> Bool12
+        if not isinstance(clause2,Clause):
+            raise ValueError("input not a clause")
+        return self.functor==clause2.functor and len(self.arguments) == len(clause2.arguments)
+
+    def variable_substitution(self,variable_matching):
+        # find variable
+        for i in range(len(self.arguments)):
+            if re.match(VARIABLE_REGEX,self.arguments[i])!=None:
+                to_substitute = variable_matching.get(self.arguments[i])
+                if to_substitute!=None:
+                    self.arguments[i] = to_substitute.strip()
+
+    def test_substitution(self,variable_matching):
+        print(self.variable_substitution(variable_matching))
+
+    def has_variable(self):
+        for i in self.arguments:
+            if re.match(VARIABLE_REGEX,i)!=None:
+                return True
+        return False
+
 
 class Rule(object):
-    class Clause(object):
-        def __init__(functor, arguments=[]):
-            self.functor = functor
-            self.arguments = arguments
-
-        def __str__(self):
-            argument_string = ",".join(self.arguments)
-            to_return = "{}({})".format(self.functor,argument_string)
-            return to_return
-
-    def __init__(head_clause,tail_clauses=[]):
+    def __init__(self,head_clause,tail_clauses=[]):
         self.head = head_clause
         self.tail = tail_clauses
 
     def __str__(self):
+        if self.tail==[]:
+            return str(self.head)
         tail_string_list = [str(i) for i in self.tail]
         tail_string = ", ".join(tail_string_list)
         to_return = "{} :- {}".format(str(self.head),tail_string)
         return to_return
 
-class AddProofTree(object):
-    def __init__(self, graph,rules):
-        self.graph = graph if isinstance(graph,Graph) else None
-        self.proof_tree_added = False
-        self.rules = self.parse_rules(rules)
+class ParseRule(object):
+    def __init__(self,rule_text):
+        self.rules = self.parse_rules(rule_text)
 
-    # def verify_graph(self):
-    #     to_return = isinstance(self.graph,Graph)
-    #     # print(to_return)
-    #     return to_return
-    
-    def graph_proof_tree(self):
-        
-        root = self.graph.find_root()
-        if root==None:
-            return
-        node_list = self.graph.dfs(root)
-        for i in range(len(node_list)):
-            curr_proof_tree = self.node_proof_tree(node_list[i])
-
-
-        self.proof_tree_added = True
-
-    def root_proof_tree(self,curr_node):
-        goal = curr_node.goal_text
-        tree = ProofTree()
-        tree.add_root(goal)
-        tree.root().is_current_vertex = True
-        curr_node.proof_tree = tree
-        return tree
-        
-    def node_proof_tree(self,curr_node):
-        parent_node = curr_node.parent
-        tree = copy.deepcopy(parent_node.proof_tree)
-
-# ----------- parsing -----------
     def parse_rules(self,rules):
         # [String] -> [Rule]
         to_return = []
@@ -103,15 +104,24 @@ class AddProofTree(object):
     
     def parse_clauses(self,clause_text_list):
         # [String] (clause text list) -> [Clause]
+        return [ParseClause(i).clause for i in clause_text_list]
+    #     to_return = []
+    #     for i in clause_text_list:
+    #         to_append = self.parse_clause(i)
+    #         to_return.append(to_append)
+    #     return to_return
+    def parse_clause(self,clause_text):
+        clause_parser = ParseClause(clause_text)
+        return clause_parser.clause
 
-        to_return = []
-        for i in clause_text_list:
-            to_append = self.parse_clause(i)
-            to_return.append(to_append)
-        return to_return
+class ParseClause(object):
+    def __init__(self,clause_text):
+        self.clause = self.parse_clause(clause_text)
 
     def parse_clause(self,clause_text):
         # String (clause text) -> Clause
+        if clause_text==None:
+            return None
         if clause_text[-1]!=")":
             to_return = Clause(clause_text)
             return to_return
@@ -125,23 +135,124 @@ class AddProofTree(object):
         to_return = Clause(functor,arguments)
         return to_return
 
-        
 
-    def variable_substitution(self,input_text,variable_matching):
-        # find variable
-        VARIABLE_REGEX = r"^[A-Z_][A-Za-z0-9_]*$"
-        # re.sub(pattern, repl, string, count=0, flags=0)
+class AddProofTree(object):
+    def __init__(self, graph,rules):
+        self.graph = graph if isinstance(graph,Graph) else None
+        self.proof_tree_added = False
+        self.rules = rules
 
-        
+    # def verify_graph(self):
+    #     to_return = isinstance(self.graph,Graph)
+    #     # print(to_return)
+    #     return to_return
+    
+    def graph_proof_tree(self):
+        root = self.graph.find_root()
+        if root is None:
+            return
+        self.root_proof_tree(root)
+        vertex_list = self.graph.dfs(root)
+        for i in range(1,len(vertex_list)):
+            to_print = self.node_proof_tree(vertex_list[i])
+            print("vertex: ",vertex_list[i])
+            for j in to_print:
+                print(j)
 
+
+        # self.node_proof_tree(node_list[1])
+        # new_tree = self.root_proof_tree(root)
+        # print(new_tree.root())
+        # print(new_tree._size)
+        # for i in range(len(node_list)):
+        #     curr_proof_tree = self.node_proof_tree(node_list[i])
+        self.proof_tree_added = True
+
+    def root_proof_tree(self,curr_vertex):
+        # curr_vertex = self.graph.idx_to_vertex(vertex_idx)
+        goal = curr_vertex.goal
+        goal_clause = ParseClause(goal).clause
+        # # add branches
+        # head_clause = None
+        # tail_clauses = []
+        # for i in self.rules:
+        #     if goal_clause.match_functor(i.head):
+        #         head_clause = copy.deepcopy(i.head)
+        #         tail_clauses = copy.deepcopy(i.tail)
+        #         break
+        tree = ProofTree()
+        print("root tree: ",type(tree))
+        root_node = tree.add_root(goal_clause)
+        # tree.add_children(root_node,tail_clauses)
+        tree.set_true()
+        curr_vertex.proof_tree = copy.deepcopy(tree)
+        return curr_vertex.proof_tree
         
+    def node_proof_tree(self,curr_vertex):
+        # find incoming edge in the graph 
+        curr_edge = self.graph.incoming_edge(curr_vertex)
+        if curr_edge is None:
+            raise ValueError("no incoming edge found")
+        # find current rule
+        curr_rule_idx = int(curr_edge.rule_encoding.strip()[-1])
+        curr_rule = self.rules[curr_rule_idx]
+        # find matching_dict
+        matching_dict = curr_edge.matching_dict
+        # find current goal
+        goal = curr_vertex.goal
+        goal_clause = ParseClause(goal).clause
+
+        prev_vertex = curr_edge.opposite(curr_vertex)
+        # copy parent tree
+        tree = copy.deepcopy(prev_vertex.proof_tree)
+        
+        # the tree grows
+        if curr_rule.tail!=[]:
+            # head_clause = copy.deepcopy(curr_rule.head)
+            tail_clauses = copy.deepcopy(curr_rule.tail)
+            # find a children-less node that matches the functor
+            curr_node = None
+            node_list = list(tree.postorder())
+            for i in range(len(node_list)):
+                if tree.is_leaf(node_list[i]):
+                    if curr_rule.head.match_functor(tree.get_element(node_list[i])):
+                        curr_node = node_list[i]
+                        break
+            if curr_node is None:
+                raise ValueError("curr node not found")
+            tree.add_children(curr_node,tail_clauses)
+  
+        # substitution
+        node_list = list(tree.postorder())
+        for i in range(len(node_list)):
+            curr_clause = tree.get_element(node_list[i])
+            curr_clause.variable_substitution(matching_dict)
+            tree.set_element(node_list[i],curr_clause)
+        tree.set_true()
+        curr_vertex.proof_tree = copy.deepcopy(tree)
+        return curr_vertex.proof_tree
+                
 
 if __name__ == '__main__':
-    rules = ["sibling ( A, B )  :- parent_child ( C, A ) , parent_child ( C, B )" , "parent_child ( tom_smith, mary )  :- TRUE", "parent_child ( tom_smith, jack )  :- TRUE"]
-    hp = HtmlParser("tests/test1_output")
+    # test5
+    rules_text =["great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D )" , "grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C )" , "parent ( alice, bob )  :- TRUE", "parent ( bob, charlie )  :- TRUE", "parent ( charlie, daisy )  :- TRUE"]
+    # test3
+    rules_text =["grand_parent ( X, Y )  :- parent_child ( X, Z )" , "parent_child ( Z, Y ) , parent_child ( alice, bob )  :- TRUE", "parent_child ( alice, bertie )  :- TRUE", "parent_child ( charlie, daisy )  :- TRUE", "parent_child ( bertie, chuck )  :- TRUE", "parent_child ( bob, charlie )  :- TRUE", "parent_child ( chuck, david )  :- TRUE"]
+
+    # rules_text = ["sibling ( A, B )  :- parent_child ( C, A ) , parent_child ( C, B )" , "parent_child ( tom_smith, mary )  :- TRUE", "parent_child ( tom_smith, jack )  :- TRUE"]
+    parse_rule = ParseRule(rules_text)
+    rules = parse_rule.rules
+
+    hp = HtmlParser("tests/test3_output")
     g = hp.html_to_graph()
     apt = AddProofTree(g,rules)
-    print(apt.rules)
+    apt.graph_proof_tree()
+
+    # variable_matching = {'A':'alice','B':'bob'}
+    # clause.test_substitution(variable_matching)
+    # for i in apt.rules:
+    #     print(i)
+
     # print(apt.graph)
     # apt.verify_graph()
 
