@@ -1,5 +1,5 @@
 
-
+import copy
 class ProofTree:
     class TreeNode:
         def __init__(self, idx,element="", children=[],parent = None):
@@ -117,23 +117,23 @@ class ProofTree:
     def set_element(self,node,new_element):
         node._element = new_element
     
-    def set_true(self):
-        node_list = list(self.postorder())
+    # def set_true(self):
+    #     node_list = list(self.postorder())
         
-        for i in range(len(node_list)):
-            if node_list[i].is_true:
-                continue
-            clause = self.get_element(node_list[i])
-            if clause.has_variable() is False:
-                if self.is_leaf(node_list[i]):
-                    node_list[i].is_true = True
-                else:
-                    subtree_list = list(self._subtree_postorder(node_list[i]))
-                    subtree_list = subtree_list[:-1]
-                    for j in range(len(subtree_list)):
-                        if subtree_list[j].is_true ==False:
-                            return
-                    node_list[i].is_true = True
+    #     for i in range(len(node_list)):
+    #         if node_list[i].is_true:
+    #             continue
+    #         clause = self.get_element(node_list[i])
+    #         if clause.has_variable() is False:
+    #             if self.is_leaf(node_list[i]):
+    #                 node_list[i].is_true = True
+    #             else:
+    #                 subtree_list = list(self._subtree_postorder(node_list[i]))
+    #                 subtree_list = subtree_list[:-1]
+    #                 for j in range(len(subtree_list)):
+    #                     if subtree_list[j].is_true ==False:
+    #                         return
+    #                 node_list[i].is_true = True
                     
                     
 
@@ -151,10 +151,11 @@ class ProofTree:
 
     def add_children(self,node,element_list):
         for i in range(len(element_list)):
+            # print("len(element_list): ",len(element_list))
             idx = self._size
             self._size += 1
             new_node = self.TreeNode(idx=idx,element=element_list[i],parent=node)
-            node.children.append(new_node)
+            node.children.append(copy.deepcopy(new_node))
 
     def _replace(self, node, e):
         """Replace the element at given node with e, and return the old element."""
@@ -209,13 +210,15 @@ class ProofTree:
     #         t2._root = None             # set t2 instance to empty
     #         t2._size = 0
 
-    # def preorderPrint(self,node):
-    #     if node is not None:
-    #         print("from PreorderPrint:",node._element)
-    #     if node._left is not None:
-    #         self.preorderPrint(node._left)
-    #     if node._right is not None:
-    #         self.preorderPrint(node._right)
+    def preorderPrint(self,node):
+        if node is not None:
+            print("from PreorderPrint:",node._element)
+        for i in node.children:
+            self.preorderPrint(i)
+        # if node._left is not None:
+        #     self.preorderPrint(node._left)
+        # if node._right is not None:
+        #     self.preorderPrint(node._right)
 
     # def postorderPrint(self,node):
     #     if node._left is not None:

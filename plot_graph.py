@@ -35,7 +35,7 @@ class PlotGraph(object):
 
     def show(self):
         self.plot()
-        layout = self.plotted.layout("rt_circular")
+        layout = self.plotted.layout("tree")
 
         vertex_label_list = []
         for i in range(len(self.plotted.vs)):
