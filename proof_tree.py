@@ -2,9 +2,10 @@
 
 class ProofTree:
     class TreeNode:
-        def __init__(self, element="", children=[],parent = None):
+        def __init__(self, idx,element="", children=[],parent = None):
             self._parent = parent
-            self._element = element
+            self._element = element # clauses
+            self.idx = idx
             self.children = children
             self.is_true = False
 
@@ -34,7 +35,7 @@ class ProofTree:
     def __iter__(self):
         """Generate an iteration of the tree's elements."""
         for node in self.nodes():                        # use same order as nodes()
-            yield node._element                               # but yield each element
+            yield node                               # but yield each element
 
     def nodes(self):
         """Generate an iteration of the tree's nodes."""
@@ -81,16 +82,17 @@ class ProofTree:
           for other in self._subtree_inorder(node._right):
             yield other
 
-    def breadthfirst(self):
-        """Generate a breadth-first iteration of the nodes of the tree."""
-        if not self.is_empty():
-            fringe = LinkedQueue()             # known nodes not yet yielded
-            fringe.enqueue(self._root)        # starting with the root
-            while not fringe.is_empty():
-                node = fringe.dequeue()             # remove from front of the queue
-                yield node                          # report this node
-                for c in self.children(node):
-                    fringe.enqueue(c)              # add children to back of queue
+
+    # def breadthfirst(self):
+    #     """Generate a breadth-first iteration of the nodes of the tree."""
+    #     if not self.is_empty():
+    #         fringe = LinkedQueue()             # known nodes not yet yielded
+    #         fringe.enqueue(self._root)        # starting with the root
+    #         while not fringe.is_empty():
+    #             node = fringe.dequeue()             # remove from front of the queue
+    #             yield node                          # report this node
+    #             for c in self.children(node):
+    #                 fringe.enqueue(c)              # add children to back of queue
 
 
     def root(self):
@@ -119,16 +121,20 @@ class ProofTree:
         node_list = list(self.postorder())
         
         for i in range(len(node_list)):
+            if node_list[i].is_true:
+                continue
             clause = self.get_element(node_list[i])
             if clause.has_variable() is False:
                 if self.is_leaf(node_list[i]):
                     node_list[i].is_true = True
                 else:
-                    subtree_list = self._subtree_postorder(node_list[i])
-                    for j in subtree_list:
-                        if j.is_true is False:
+                    subtree_list = list(self._subtree_postorder(node_list[i]))
+                    subtree_list = subtree_list[:-1]
+                    for j in range(len(subtree_list)):
+                        if subtree_list[j].is_true ==False:
                             return
                     node_list[i].is_true = True
+                    
                     
 
     #-------------------------- nonpublic mutators --------------------------
@@ -140,13 +146,14 @@ class ProofTree:
         if self._root is not None:
             raise ValueError('Root exists')
         self._size = 1
-        self._root = self.TreeNode(element=e)
+        self._root = self.TreeNode(idx = 0,element=e)
         return self._root
 
     def add_children(self,node,element_list):
         for i in range(len(element_list)):
+            idx = self._size
             self._size += 1
-            new_node = self.TreeNode(element=element_list[i],parent=node)
+            new_node = self.TreeNode(idx=idx,element=element_list[i],parent=node)
             node.children.append(new_node)
 
     def _replace(self, node, e):
@@ -155,52 +162,52 @@ class ProofTree:
         node._element = e
         return old
 
-    def _delete(self, node):
-        """Delete the given node, and replace it with its child, if any.
+    # def _delete(self, node):
+    #     """Delete the given node, and replace it with its child, if any.
 
-        Return the element that had been stored at the given node.
-        Raise ValueError if node has two children.
-        """
-        if self.num_children(node) == 2:
-            raise ValueError('Position has two children')
-        child = node._left if node._left else node._right  # might be None
-        if child is not None:
-            child._parent = node._parent     # child's grandparent becomes parent
-        if node is self._root:
-            self._root = child             # child becomes root
-        else:
-            parent = node._parent
-            if node is parent._left:
-                parent._left = child
-            else:
-                parent._right = child
-        self._size -= 1
-        return node._element
+    #     Return the element that had been stored at the given node.
+    #     Raise ValueError if node has two children.
+    #     """
+    #     if self.num_children(node) == 2:
+    #         raise ValueError('Position has two children')
+    #     child = node._left if node._left else node._right  # might be None
+    #     if child is not None:
+    #         child._parent = node._parent     # child's grandparent becomes parent
+    #     if node is self._root:
+    #         self._root = child             # child becomes root
+    #     else:
+    #         parent = node._parent
+    #         if node is parent._left:
+    #             parent._left = child
+    #         else:
+    #             parent._right = child
+    #     self._size -= 1
+    #     return node._element
 
 
 
-    def _attach(self, node, t1, t2):
-        """Attach trees t1 and t2, respectively, as the left and right subtrees of the external node.
+    # def _attach(self, node, t1, t2):
+    #     """Attach trees t1 and t2, respectively, as the left and right subtrees of the external node.
 
-        As a side effect, set t1 and t2 to empty.
-        Raise TypeError if trees t1 and t2 do not match type of this tree.
-        Raise ValueError if node already has a child. (This operation requires a leaf node!)
-        """
-        if not self.is_leaf(node):
-            raise ValueError('position must be leaf')
-        if not type(self) is type(t1) is type(t2):    # all 3 trees must be same type
-            raise TypeError('Tree types must match')
-        self._size += len(t1) + len(t2)
-        if not t1.is_empty():         # attached t1 as left subtree of node
-            t1._root._parent = node
-            node._left = t1._root
-            t1._root = None             # set t1 instance to empty
-            t1._size = 0
-        if not t2.is_empty():         # attached t2 as right subtree of node
-            t2._root._parent = node
-            node._right = t2._root
-            t2._root = None             # set t2 instance to empty
-            t2._size = 0
+    #     As a side effect, set t1 and t2 to empty.
+    #     Raise TypeError if trees t1 and t2 do not match type of this tree.
+    #     Raise ValueError if node already has a child. (This operation requires a leaf node!)
+    #     """
+    #     if not self.is_leaf(node):
+    #         raise ValueError('position must be leaf')
+    #     if not type(self) is type(t1) is type(t2):    # all 3 trees must be same type
+    #         raise TypeError('Tree types must match')
+    #     self._size += len(t1) + len(t2)
+    #     if not t1.is_empty():         # attached t1 as left subtree of node
+    #         t1._root._parent = node
+    #         node._left = t1._root
+    #         t1._root = None             # set t1 instance to empty
+    #         t1._size = 0
+    #     if not t2.is_empty():         # attached t2 as right subtree of node
+    #         t2._root._parent = node
+    #         node._right = t2._root
+    #         t2._root = None             # set t2 instance to empty
+    #         t2._size = 0
 
     # def preorderPrint(self,node):
     #     if node is not None:

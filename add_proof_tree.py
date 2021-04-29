@@ -1,8 +1,11 @@
 from proof_tree import ProofTree
 from graph import Graph
 from html_parser import HtmlParser
+from plot_trees import PlotTrees
+import igraph
 import copy
 import re
+
 VARIABLE_REGEX = r"^[A-Z_][A-Za-z0-9_]*$"
 
 class Clause(object):
@@ -157,7 +160,7 @@ class AddProofTree(object):
             to_print = self.node_proof_tree(vertex_list[i])
             print("vertex: ",vertex_list[i])
             for j in to_print:
-                print(j)
+                print(j._element,"\t",j.is_true)
 
 
         # self.node_proof_tree(node_list[1])
@@ -235,7 +238,7 @@ class AddProofTree(object):
 
 if __name__ == '__main__':
     # test5
-    rules_text =["great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D )" , "grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C )" , "parent ( alice, bob )  :- TRUE", "parent ( bob, charlie )  :- TRUE", "parent ( charlie, daisy )  :- TRUE"]
+    # rules_text =["great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D )" , "grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C )" , "parent ( alice, bob )  :- TRUE", "parent ( bob, charlie )  :- TRUE", "parent ( charlie, daisy )  :- TRUE"]
     # test3
     rules_text =["grand_parent ( X, Y )  :- parent_child ( X, Z )" , "parent_child ( Z, Y ) , parent_child ( alice, bob )  :- TRUE", "parent_child ( alice, bertie )  :- TRUE", "parent_child ( charlie, daisy )  :- TRUE", "parent_child ( bertie, chuck )  :- TRUE", "parent_child ( bob, charlie )  :- TRUE", "parent_child ( chuck, david )  :- TRUE"]
 
@@ -247,6 +250,10 @@ if __name__ == '__main__':
     g = hp.html_to_graph()
     apt = AddProofTree(g,rules)
     apt.graph_proof_tree()
+    tree_plotter = PlotTrees(apt.graph)
+    vis_tree = tree_plotter.plot_trees()
+    # tree_plotter.show_tree(vis_tree,4)
+
 
     # variable_matching = {'A':'alice','B':'bob'}
     # clause.test_substitution(variable_matching)
