@@ -7,11 +7,12 @@ class Graph:
         """Lightweight vertex structure for a graph."""
         # __slots__ = '_element'
     
-        def __init__(self, idx, goal=None,proof_tree=None):
+        def __init__(self, idx, goal=None,proof_tree=None,proof=None):
             """Do not call constructor directly. Use Graph's insert_vertex(x)."""
             self.goal = goal
             self.idx = idx
             self.proof_tree = proof_tree
+            self.proof = proof
 
         # def element(self):
         #     """Return element associated with this vertex."""
@@ -234,6 +235,7 @@ class Graph:
         # input: goal of a vertex
         # return the vertex
         if len(self._outgoing)==0:
+            print("GOAL: ",goal)
             raise ValueError('vertex DNE')
         # print("in goal_to_vertex")
         for i in self._outgoing.keys():

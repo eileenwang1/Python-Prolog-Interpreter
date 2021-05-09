@@ -1,3 +1,5 @@
+<rules rules=['grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ', 'parent_child ( alice, bob )  :- TRUE', 'parent_child ( alice, bertie )  :- TRUE', 'parent_child ( charlie, daisy )  :- TRUE', 'parent_child ( bertie, chuck )  :- TRUE', 'parent_child ( bob, charlie )  :- TRUE', 'parent_child ( chuck, david )  :- TRUE']>
+</rules>
 <query goal="grand_parent ( X, Y ) ">
 <forloop index="0" rule="grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ">
 <matching_head matchinghead="{X: X, Y: Y}"> 

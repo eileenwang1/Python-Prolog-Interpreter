@@ -53,7 +53,7 @@ class PlotTrees(object):
         visual_style["layout"] = layout
         visual_style["bbox"] = (600, 600)
         visual_style["margin"] = 100
-        output_filename = "tests/ftest3/tree{}.png".format(vertex_idx)
+        output_filename = "plotting/ftest3/tree{}.png".format(vertex_idx)
         igraph.plot(vis_tree, output_filename,**visual_style)
 
         

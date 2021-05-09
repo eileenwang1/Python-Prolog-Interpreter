@@ -25,10 +25,10 @@ class Clause(object):
         c2.strip()
         return self.functor==c2.functor and self.arguments==c2.arguments
    
-    
     def strip(self):
         self.functor = self.functor.strip()
         self.arguments = [i.strip() for i in self.arguments]
+    
     def match_functor(self,clause2):
         # Clause -> Clause -> Bool12
         if not isinstance(clause2,Clause):
@@ -67,8 +67,8 @@ class Rule(object):
         return to_return
 
 class ParseRule(object):
-    def __init__(self,rule_text):
-        self.rules = self.parse_rules(rule_text)
+    def __init__(self,rule_texts):
+        self.rules = self.parse_rules(rule_texts)
 
     def parse_rules(self,rules):
         # [String] -> [Rule]
@@ -146,10 +146,10 @@ class ParseClause(object):
 
 
 class AddProofTree(object):
-    def __init__(self, graph,rules):
+    def __init__(self, graph,rule_texts):
         self.graph = graph if isinstance(graph,Graph) else None
         self.proof_tree_added = False
-        self.rules = rules
+        self.rules = ParseRule(rule_texts).rules
     
     def graph_proof_tree(self):
         root = self.graph.find_root()
@@ -171,7 +171,6 @@ class AddProofTree(object):
         # print(new_tree._size)
         # for i in range(len(node_list)):
         #     curr_proof_tree = self.node_proof_tree(node_list[i])
-        self.proof_tree_added = True
 
     def root_proof_tree(self,curr_vertex):
         # curr_vertex = self.graph.idx_to_vertex(vertex_idx)

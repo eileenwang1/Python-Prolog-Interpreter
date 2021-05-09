@@ -1,4 +1,5 @@
-[grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) , parent_child ( alice, bob )  :- TRUE, parent_child ( alice, bertie )  :- TRUE, parent_child ( charlie, daisy )  :- TRUE, parent_child ( bertie, chuck )  :- TRUE, parent_child ( bob, charlie )  :- TRUE, parent_child ( chuck, david )  :- TRUE]
+<rules rules=['grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y ) ', 'parent_child ( alice, bob )  :- TRUE', 'parent_child ( alice, bertie )  :- TRUE', 'parent_child ( charlie, daisy )  :- TRUE', 'parent_child ( bertie, chuck )  :- TRUE', 'parent_child ( bob, charlie )  :- TRUE', 'parent_child ( chuck, david )  :- TRUE']>
+</rules>
 query:  grand_parent ( X, Y ) 
 query.arguments:  [X, Y]
 <query goal="grand_parent ( X, Y ) ">

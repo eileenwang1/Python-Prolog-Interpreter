@@ -1,3 +1,5 @@
+<rules rules=['great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ', 'grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C ) ', 'parent ( alice, bob )  :- TRUE', 'parent ( bob, charlie )  :- TRUE', 'parent ( charlie, daisy )  :- TRUE']>
+</rules>
 <query goal="great_grand_parent ( X, daisy ) ">
 <forloop index="0" rule="great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D ) ">
 <matching_head matchinghead="{A: X, D: daisy}"> 

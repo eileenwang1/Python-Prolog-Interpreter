@@ -1,0 +1,95 @@
+NODE 0
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+NODE 1
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+NODE 2
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(alice,bob)                                                     	    2
+NODE 3
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(alice,bob)                                                     	    2
+NODE 4
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(alice,bob)                                                     	    2
+6    parent(bob,charlie)                                                   	    3
+7    parent(charlie,daisy)                                                 	    4
+8    grand_parent(bob,daisy)                                               	1,6,7
+9    great_grand_parent(alice,daisy)                                       	0,5,8
+NODE 5
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(alice,bob)                                                     	    2
+6    parent(bob,charlie)                                                   	    3
+7    parent(charlie,daisy)                                                 	    4
+8    grand_parent(bob,daisy)                                               	1,6,7
+9    great_grand_parent(alice,daisy)                                       	0,5,8
+NODE 6
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(bob,charlie)                                                   	    3
+NODE 7
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(bob,charlie)                                                   	    3
+NODE 8
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(bob,charlie)                                                   	    3
+6    parent(charlie,daisy)                                                 	    4
+NODE 9
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(charlie,daisy)                                                 	    4
+NODE 10
+0    great_grand_parent(A,D) :- parent(A,B), grand_parent(B,D)             	    P
+1    grand_parent(A,C) :- parent(A,B), parent(B,C)                         	    P
+2    parent(alice,bob)                                                     	    P
+3    parent(bob,charlie)                                                   	    P
+4    parent(charlie,daisy)                                                 	    P
+     ---------------
+5    parent(charlie,daisy)                                                 	    4
