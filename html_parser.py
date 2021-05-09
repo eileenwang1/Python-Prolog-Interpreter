@@ -9,6 +9,7 @@ class HtmlParser(object):
     def __init__(self, src_filename):
         self.graph = Graph()
         self.src_filename = src_filename
+        self.rule_texts = ""
     
     def output_to_html(self):
         dst_filename = self.src_filename+".html"
@@ -44,8 +45,10 @@ class HtmlParser(object):
         for curr_line in to_parse:
             curr_line = curr_line.strip()
             counter += 1
-            # print("\n")
-            if curr_line[:7]=="<query ":
+            # todo: parse rules
+            if curr_line[:6]=="<rules":
+                self.rule_texts = extract_rules(curr_line[6:])
+            elif curr_line[:7]=="<query ":
                 goal = extract_goal(curr_line[7:])
                 and_stack.append(goal)
                 if counter == 1:
@@ -136,6 +139,8 @@ class HtmlParser(object):
 
 # input: a string in the form of 'index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">'
 # output: (char) index of the rule
+def extract_rules(raw_rule_text):
+    pass
 def extract_rule_number(rule):
     p = re.compile(r'\d+')
     rule_idx = p.findall(rule)[0]

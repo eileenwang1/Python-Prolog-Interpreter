@@ -20,7 +20,9 @@ def test_prettyprint(filename):
     f.close()
     solver = Solver(rules_text)
     rules = solver.database.rules
-    print(rules)
+    to_print = ["{}".format(i) for i in rules]
+    print("<rules rules={}>".format(to_print))
+    print("</rules>")
     solution = solver.find_solutions(goal_text)
     
 

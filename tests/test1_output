@@ -1,4 +1,5 @@
-[sibling ( A, B )  :- parent_child ( C, A ) , parent_child ( C, B ) , parent_child ( tom_smith, mary )  :- TRUE, parent_child ( tom_smith, jack )  :- TRUE]
+<rules rules=['sibling ( A, B )  :- parent_child ( C, A ) , parent_child ( C, B ) ', 'parent_child ( tom_smith, mary )  :- TRUE', 'parent_child ( tom_smith, jack )  :- TRUE']>
+</rules>
 query:  sibling ( mary, X ) 
 query.arguments:  [mary, X]
 <query goal="sibling ( mary, X ) ">
