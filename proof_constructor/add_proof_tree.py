@@ -1,8 +1,5 @@
-from proof_tree import ProofTree
-from graph import Graph
-from html_parser import HtmlParser
-from plot_trees import PlotTrees
-import igraph
+from proof_constructor.proof_tree import ProofTree
+from proof_constructor.graph import Graph
 import copy
 import re
 

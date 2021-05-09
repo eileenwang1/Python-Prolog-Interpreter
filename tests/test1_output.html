@@ -1,3 +1,5 @@
+<rules rules=['sibling ( A, B )  :- parent_child ( C, A ) , parent_child ( C, B ) ', 'parent_child ( tom_smith, mary )  :- TRUE', 'parent_child ( tom_smith, jack )  :- TRUE']>
+</rules>
 <query goal="sibling ( mary, X ) ">
 <forloop index="0" rule="sibling ( A, B )  :- parent_child ( C, A ) , parent_child ( C, B ) ">
 <matching_head matchinghead="{A: mary, B: X}"> 

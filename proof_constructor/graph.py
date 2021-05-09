@@ -237,9 +237,7 @@ class Graph:
         if len(self._outgoing)==0:
             print("GOAL: ",goal)
             raise ValueError('vertex DNE')
-        # print("in goal_to_vertex")
         for i in self._outgoing.keys():
-            # print(i)
             if i.goal==goal:
                 return i
         return None
@@ -280,63 +278,6 @@ class Graph:
 
 
 
-# def main():
-#     print("------------------ Task 1 --------------------")
-#     ''' Build two graphs given in the recitation document '''
-#     g1 = Graph()
-#     va = g1.insert_vertex("A")
-#     vb = g1.insert_vertex("B")
-#     vc = g1.insert_vertex("C")
-#     vd = g1.insert_vertex("D")
-#     ve = g1.insert_vertex("E")
-#     #the return value for insert_edge is none
-#     g1.insert_edge(va, vd, "a")
-#     g1.insert_edge(va, vb, "b")
-#     g1.insert_edge(vb, vd, "c")
-#     g1.insert_edge(vb, vc, "d")
-#     g1.insert_edge(vc, vd, "e")
-#     g1.insert_edge(vc, ve, "f")
-
-
-#     g1.incident_edges(va, vb)
-
-#     g2 = Graph(True)
-#     #list is not hashable in python
-#     va2 = g2.insert_vertex("A")
-#     vb2 = g2.insert_vertex("B")
-#     vc2 = g2.insert_vertex("C")
-#     vd2 = g2.insert_vertex("D")
-#     ve2 = g2.insert_vertex("E")
-#     g2.insert_edge(va2, vd2, ("a",5)) #from va2 to vd2 (since it is a dircted graph,
-#                                     # you need to insert edge twice)
-#     g2.insert_edge(vd2, va2, ("a",5))   #from vd2 to va2
-#     g2.insert_edge(va2, vb2,("b",20))
-#     g2.insert_edge(vb2, vd2, ("c", 12))
-#     g2.insert_edge(vb2, vc2, ("d", 7))
-#     g2.insert_edge(vd2, vc2, ("e", 11))
-#     g2.insert_edge(vc2, ve2, ("f", 9))
-
-
-
-#     print(g1)
-#     print(g2)
-
-#     print("------------------ Task 2 --------------------")
-#     ''' Call Graph.degree(v, outgoing=True). Try to understand this function '''
-#     print(g1.degree(vc))    #returns 3
-#     print(g2.degree(vc2, False))    #returns 2 outgoing = False, gets the in-degree
-#     print(g2.degree(vc2))   #returns 1, outgoing = True, gets out-degree
-
-
-#     print("------------------ Task 3 --------------------")
-#     ''' Call Graph.incident_edges(v, outgoing=True). Try to understand this function '''
-#     #yields those edges, unable to print
-#     print(g1.incident_edges(vc))
-#     print(g2.incident_edges(vc2))
-#     print(g2.incident_edges(vc2, False))
-
-# if __name__ == '__main__':
-#     main()
 
 
 

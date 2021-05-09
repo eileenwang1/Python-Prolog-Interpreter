@@ -151,7 +151,6 @@ class ProofTree:
 
     def add_children(self,node,element_list):
         for i in range(len(element_list)):
-            # print("len(element_list): ",len(element_list))
             idx = self._size
             self._size += 1
             new_node = self.TreeNode(idx=idx,element=element_list[i],parent=node)

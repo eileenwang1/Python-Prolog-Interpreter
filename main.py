@@ -1,34 +1,62 @@
-from html_parser import HtmlParser
-from add_proof_tree import AddProofTree
-from plot_trees import PlotTrees
-from add_proof_from_tree import AddProof
+import sys
+import os
+from proof_constructor.html_parser import HtmlParser
+from proof_constructor.add_proof_tree import AddProofTree
+from proof_constructor.add_proof_from_tree import AddProof
+from proof_constructor.plot_graph import PlotGraph
+from proof_constructor.plot_trees import PlotTrees
+TEST_DIR = "tests/"
+PLOT_DIR = "plotting/"
+SRC_DIR = "proof_constructor/"
 def main():
-    # test5
-    # rules_text =["great_grand_parent ( A, D )  :- parent ( A, B ) , grand_parent ( B, D )" , "grand_parent ( A, C )  :- parent ( A, B ) , parent ( B, C )" , "parent ( alice, bob )  :- TRUE", "parent ( bob, charlie )  :- TRUE", "parent ( charlie, daisy )  :- TRUE"]
-    # test3
-    # rules_text =["grand_parent ( X, Y )  :- parent_child ( X, Z ) , parent_child ( Z, Y )" , "parent_child ( alice, bob )  :- TRUE", "parent_child ( alice, bertie )  :- TRUE", "parent_child ( charlie, daisy )  :- TRUE", "parent_child ( bertie, chuck )  :- TRUE", "parent_child ( bob, charlie )  :- TRUE", "parent_child ( chuck, david )  :- TRUE"]
+    
+    if len(sys.argv) != 2:
+        raise ValueError('wrong number of inputs.')
+    test_case_filename = sys.argv[1]
+    if not os.path.isfile(test_case_filename):
+        raise ValueError('input file does not exist')
 
-    # rules_text = ["sibling ( A, B )  :- parent_child ( C, A ) , parent_child ( C, B )" , "parent_child ( tom_smith, mary )  :- TRUE", "parent_child ( tom_smith, jack )  :- TRUE"]
-    # parse_rule = ParseRule(rules_text)
-    # rules = parse_rule.rules
-
-    hp = HtmlParser("tests/test5_output")
-    g = hp.html_to_graph()
-    rule_texts = hp.rule_texts
-    apt = AddProofTree(g,rule_texts)
+    # set absolute path for future imports
+    os.system("export PYTHONPATH=$PYTHONPATH:$(pwd)")
+    
+    # manage filenames
+    test_output_filename = test_case_filename + "_output"
+    proof_file_name = test_case_filename+"_proof"
+    # for plotting filenames
+    cut_idx = test_case_filename.find(TEST_DIR)+len(TEST_DIR)
+    atom_filename = test_case_filename[cut_idx:]
+    plot_child_dir = "{}f{}/".format(PLOT_DIR,atom_filename)
+    if not os.path.isdir(plot_child_dir):
+        try:
+            os.mkdir(plot_child_dir) 
+        except OSError as error: 
+            print(error)  
+    graph_filename = "{}{}_plot.png".format(plot_child_dir,atom_filename)
+    
+    # pretty-print states of the python interpreter
+    cmd_str = "python3 {}test_prettyprint.py {} > {}".format(SRC_DIR,test_case_filename,test_output_filename)
+    os.system(cmd_str)
+    # post-process and parse pretty-printed output
+    hp = HtmlParser(test_output_filename)   # parser object
+    g = hp.html_to_graph()  # graph object
+    rule_texts = hp.rule_texts  # list of rule texts (str)
+   
+    # add proof tree to each vertex in the graph
+    apt = AddProofTree(g,rule_texts)    
     apt.graph_proof_tree()
-    tree_plotter = PlotTrees(apt.graph)
-    rules = apt.rules
+    rules = apt.rules   # list of Rule objects
+    
+    # add proof to each vertex from proof tree
     add_proof = AddProof(g,rules)
     add_proof.add_proofs()
-    add_proof.print_proofs()
+    add_proof.print_proofs(proof_file_name)
+    
+    # plot graph
+    graph_plotter = PlotGraph(g,graph_filename)
+    graph_plotter.show()
 
-    # # test for add proof
-    # proof_tree = g.idx_to_vertex(5).proof_tree
-    # add_proof = TreetoProof(proof_tree,rules)
-    # add_proof.add_proof()
-    # print(add_proof)
-
-    # vis_tree = tree_plotter.plot_trees()
+    # plot tree
+    tree_plotter = PlotTrees(apt.graph,plot_child_dir)
+    vis_tree = tree_plotter.plot_trees()
 
 main()

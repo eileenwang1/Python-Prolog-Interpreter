@@ -57,7 +57,6 @@ class Proof(object):
                     for j in range(len(children_list)):
                         if not children_list[j].is_true:
                             raise ValueError("child {} not true".format(children_list[j]._element))
-                        print(children_list[j]._element)
                         for k in range(len(self.derivations)):
                             to_search = self.proof_tree.get_element(children_list[j])
                             if self.derivations[k].truth==to_search:

@@ -3,7 +3,7 @@
 # for loops are the or-stack
 # the output should be stored globally, but how to store the sources of output?
 import re
-from graph import Graph 
+from proof_constructor.graph import Graph 
 
 class HtmlParser(object):
     def __init__(self, src_filename):
@@ -127,14 +127,6 @@ class HtmlParser(object):
                             raise ValueError("ERROR adding to output dict")
                         output_dict[encoding][k] = matching_dict[k]
 
-            # elif curr_line.find("<yield output=")!=-1:
-            #     yield_value = extract_yield_value(curr_line)
-
-            # print("CURR_LINE: ",curr_line)
-            # # print("AND_STACK:\n",and_stack)
-            # # print("OR_STACK:\n",or_stack)
-            # # print("OUTPUT_DICT:\n",output_dict)
-            # print(g)
         return self.graph
 
     
@@ -144,7 +136,6 @@ class HtmlParser(object):
 def extract_rules(raw_rule_text):
     raw_rule_text = raw_rule_text.strip()
     raw_rule_text = raw_rule_text[7:-2]
-    # print(raw_rule_text)
     raw_rules = raw_rule_text.split("'")
     rule_texts = []
     for i in range(len(raw_rules)):
@@ -154,7 +145,6 @@ def extract_rules(raw_rule_text):
     return rule_texts
         
 
-    # print(raw_rule_text)
 def extract_rule_number(rule):
     p = re.compile(r'\d+')
     rule_idx = p.findall(rule)[0]
@@ -211,6 +201,3 @@ if __name__ == '__main__':
     for i in from_dfs:
         print(i)
     
-    # print(to_print)
-    # output_to_html("tests/test3_output")
-    # html_parser("tests/test3_output.html")

@@ -1,8 +1,10 @@
 import igraph
+from proof_constructor.graph import Graph
 
 class PlotTrees(object):
-    def __init__(self,graph):
-        self.graph = graph
+    def __init__(self,graph,output_dir):
+        self.graph = graph if isinstance(graph,Graph) else None
+        self.output_dir = output_dir
         # self.trees = trees
 
     def plot_trees(self):
@@ -14,7 +16,7 @@ class PlotTrees(object):
     def plot_tree(self,vertex_idx):
         proof_tree = self.graph.idx_to_vertex(vertex_idx).proof_tree
         if proof_tree ==None:
-            return
+            raise ValueError("proof_tree {} is None".format(vertex_idx))
         vis_tree = igraph.Graph()
         vis_tree.add_vertices(len(proof_tree))
         node_list = list(proof_tree.preorder())
@@ -34,15 +36,13 @@ class PlotTrees(object):
             children_list = proof_tree.children(node_list[i])
             for j in range(len(children_list)):
                 to_append = (i,children_list[j].idx)
-                # print(to_append)
                 edge_list.append(to_append)
-        # print(edge_list)
         vis_tree.add_edges(edge_list)
         return vis_tree
 
     def show_tree(self,vis_tree,vertex_idx):
         if vis_tree==None:
-            return
+            raise ValueError("vis_tree {} is None".format(vertex_idx))
         layout = vis_tree.layout("tree")
         color_dict = color_dict = {True: "blue", False: "red"}
         visual_style = {}
@@ -53,7 +53,7 @@ class PlotTrees(object):
         visual_style["layout"] = layout
         visual_style["bbox"] = (600, 600)
         visual_style["margin"] = 100
-        output_filename = "plotting/ftest3/tree{}.png".format(vertex_idx)
+        output_filename = "{}tree{}.png".format(self.output_dir,vertex_idx)
         igraph.plot(vis_tree, output_filename,**visual_style)
 
         

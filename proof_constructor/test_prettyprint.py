@@ -1,6 +1,6 @@
-# import Solver
-from prologpy.solver import Solver
 import sys
+import os
+from prologpy.solver import Solver
 
 def test_prettyprint(filename):
     # read file, get rules text and goal text
@@ -18,6 +18,8 @@ def test_prettyprint(filename):
             rules_text+=line
         line = f.readline()
     f.close()
+    # output_file = filename+"_output"
+
     solver = Solver(rules_text)
     rules = solver.database.rules
     to_print = ["{}".format(i) for i in rules]
@@ -25,9 +27,4 @@ def test_prettyprint(filename):
     print("</rules>")
     solution = solver.find_solutions(goal_text)
     
-
-
-
-if __name__ == '__main__':
-    filename = sys.argv[1]
-    test_prettyprint(filename)
+test_prettyprint(sys.argv[1])

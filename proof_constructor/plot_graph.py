@@ -1,11 +1,10 @@
 import igraph
-from html_parser import HtmlParser
-
 
 class PlotGraph(object):
-    def __init__(self,to_plot):
+    def __init__(self,to_plot,output_filename):
         self.to_plot = to_plot
         self.plotted = igraph.Graph()
+        self.output_filename = output_filename
     
     def plot(self):
         # prepare vertices
@@ -35,7 +34,7 @@ class PlotGraph(object):
 
     def show(self):
         self.plot()
-        layout = self.plotted.layout("tree")
+        layout = self.plotted.layout("rt_circular")
 
         vertex_label_list = []
         for i in range(len(self.plotted.vs)):
@@ -49,14 +48,14 @@ class PlotGraph(object):
         self.plotted.es["label"] = edge_label_list
 
         visual_style = {}
-        visual_style["vertex_size"] = 40
+        visual_style["vertex_size"] = 50
         # visual_style["vertex_color"] = [color_dict[gender] for gender in g.vs["gender"]]
         visual_style["vertex_label"] = self.plotted.vs['label']
         # visual_style["edge_width"] = [1 + 2 * int(is_formal) for is_formal in g.es["is_formal"]]
         visual_style["layout"] = layout
         visual_style["bbox"] = (1000, 1000)
-        visual_style["margin"] = 50
-        visual_style["order"] = [0,1,2,3].sort()
+        visual_style["margin"] = 100
+        # visual_style["order"] = [0,1,2,3].sort()
         
         # >>> plot(g, **visual_style)
         
@@ -68,16 +67,9 @@ class PlotGraph(object):
         # todo: label of vertives is subject to change
         # g.vs['label'] = [i for i in range(len(g.vs))]
         # plot(g, "social_network.pdf", **visual_style)
-        igraph.plot(self.plotted,"test3_plot.png",**visual_style)
+        igraph.plot(self.plotted,self.output_filename,**visual_style)
 
-if __name__ == '__main__':
-    hp = HtmlParser("tests/test5_output")
-    to_plot = hp.html_to_graph()
-    # print(to_plot)
-    pg = PlotGraph(to_plot)
-    # pg.plot1()
-    # print(pg.plotted)
-    pg.show()
+
 
 
 
