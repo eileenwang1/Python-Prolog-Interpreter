@@ -45,7 +45,7 @@ NODE 4
  * readability for graph plots (orientation, position of labels, etc.)
 
 
-# April 9 Update
+<!-- # April 9 Update
 limitation: does not support recursion.
 
 # ----- original documentation
@@ -175,4 +175,4 @@ Food = oranges
 The above gives a very small sample of Prolog. I’ve included a few test cases which demo how to solve the [Zebra / Einstein puzzle](https://en.wikipedia.org/wiki/Zebra_Puzzle) using the interpreter, and you can play around and create your own rules / programs using the editor. The original language includes a lot more functionality, so I urge you to explore further. 
 
 
-
+ -->
