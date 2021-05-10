@@ -1,0 +1,134 @@
+NODE 0
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+NODE 1
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+NODE 2
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(alice,bob)                                          	    1
+NODE 3
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(alice,bob)                                          	    1
+8    parent_child(bob,charlie)                                        	    5
+9    parent_child(alice,bob) ∧ parent_child(bob,charlie)              	7,8 ∧ Intro
+10   parent_child(alice,bob) ∧ parent_child(bob,charlie) -> grand_parent(alice,charlie)	 0 UI
+11   grand_parent(alice,charlie)                                      	9,10 -> Elim
+NODE 4
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(alice,bertie)                                       	    2
+NODE 5
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(alice,bertie)                                       	    2
+8    parent_child(bertie,chuck)                                       	    4
+9    parent_child(alice,bertie) ∧ parent_child(bertie,chuck)          	7,8 ∧ Intro
+10   parent_child(alice,bertie) ∧ parent_child(bertie,chuck) -> grand_parent(alice,chuck)	 0 UI
+11   grand_parent(alice,chuck)                                        	9,10 -> Elim
+NODE 6
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(charlie,daisy)                                      	    3
+NODE 7
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(bertie,chuck)                                       	    4
+NODE 8
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(bertie,chuck)                                       	    4
+8    parent_child(chuck,david)                                        	    6
+9    parent_child(bertie,chuck) ∧ parent_child(chuck,david)           	7,8 ∧ Intro
+10   parent_child(bertie,chuck) ∧ parent_child(chuck,david) -> grand_parent(bertie,david)	 0 UI
+11   grand_parent(bertie,david)                                       	9,10 -> Elim
+NODE 9
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(bob,charlie)                                        	    5
+NODE 10
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(bob,charlie)                                        	    5
+8    parent_child(charlie,daisy)                                      	    3
+9    parent_child(bob,charlie) ∧ parent_child(charlie,daisy)          	7,8 ∧ Intro
+10   parent_child(bob,charlie) ∧ parent_child(charlie,daisy) -> grand_parent(bob,daisy)	 0 UI
+11   grand_parent(bob,daisy)                                          	9,10 -> Elim
+NODE 11
+0    parent_child(X,Z) ∧ parent_child(Z,Y) -> grand_parent(X,Y)       	    P
+1    parent_child(alice,bob)                                          	    P
+2    parent_child(alice,bertie)                                       	    P
+3    parent_child(charlie,daisy)                                      	    P
+4    parent_child(bertie,chuck)                                       	    P
+5    parent_child(bob,charlie)                                        	    P
+6    parent_child(chuck,david)                                        	    P
+     ---------------
+7    parent_child(chuck,david)                                        	    6

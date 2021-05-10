@@ -1,32 +1,36 @@
 NODE 0
-0    sibling(A,B) :- parent_child(C,A), parent_child(C,B)                  	    P
-1    parent_child(tom_smith,mary)                                          	    P
-2    parent_child(tom_smith,jack)                                          	    P
+0    parent_child(C,A) ∧ parent_child(C,B) -> sibling(A,B)            	    P
+1    parent_child(tom_smith,mary)                                     	    P
+2    parent_child(tom_smith,jack)                                     	    P
      ---------------
 NODE 1
-0    sibling(A,B) :- parent_child(C,A), parent_child(C,B)                  	    P
-1    parent_child(tom_smith,mary)                                          	    P
-2    parent_child(tom_smith,jack)                                          	    P
+0    parent_child(C,A) ∧ parent_child(C,B) -> sibling(A,B)            	    P
+1    parent_child(tom_smith,mary)                                     	    P
+2    parent_child(tom_smith,jack)                                     	    P
      ---------------
 NODE 2
-0    sibling(A,B) :- parent_child(C,A), parent_child(C,B)                  	    P
-1    parent_child(tom_smith,mary)                                          	    P
-2    parent_child(tom_smith,jack)                                          	    P
+0    parent_child(C,A) ∧ parent_child(C,B) -> sibling(A,B)            	    P
+1    parent_child(tom_smith,mary)                                     	    P
+2    parent_child(tom_smith,jack)                                     	    P
      ---------------
-3    parent_child(tom_smith,mary)                                          	    1
+3    parent_child(tom_smith,mary)                                     	    1
 NODE 3
-0    sibling(A,B) :- parent_child(C,A), parent_child(C,B)                  	    P
-1    parent_child(tom_smith,mary)                                          	    P
-2    parent_child(tom_smith,jack)                                          	    P
+0    parent_child(C,A) ∧ parent_child(C,B) -> sibling(A,B)            	    P
+1    parent_child(tom_smith,mary)                                     	    P
+2    parent_child(tom_smith,jack)                                     	    P
      ---------------
-3    parent_child(tom_smith,mary)                                          	    1
-4    parent_child(tom_smith,mary)                                          	    1
-5    sibling(mary,mary)                                                    	0,3,3
+3    parent_child(tom_smith,mary)                                     	    1
+4    parent_child(tom_smith,mary)                                     	    1
+5    parent_child(tom_smith,mary) ∧ parent_child(tom_smith,mary)      	3,3 ∧ Intro
+6    parent_child(tom_smith,mary) ∧ parent_child(tom_smith,mary) -> sibling(mary,mary)	 0 UI
+7    sibling(mary,mary)                                               	5,6 -> Elim
 NODE 4
-0    sibling(A,B) :- parent_child(C,A), parent_child(C,B)                  	    P
-1    parent_child(tom_smith,mary)                                          	    P
-2    parent_child(tom_smith,jack)                                          	    P
+0    parent_child(C,A) ∧ parent_child(C,B) -> sibling(A,B)            	    P
+1    parent_child(tom_smith,mary)                                     	    P
+2    parent_child(tom_smith,jack)                                     	    P
      ---------------
-3    parent_child(tom_smith,mary)                                          	    1
-4    parent_child(tom_smith,jack)                                          	    2
-5    sibling(mary,jack)                                                    	0,3,4
+3    parent_child(tom_smith,mary)                                     	    1
+4    parent_child(tom_smith,jack)                                     	    2
+5    parent_child(tom_smith,mary) ∧ parent_child(tom_smith,jack)      	3,4 ∧ Intro
+6    parent_child(tom_smith,mary) ∧ parent_child(tom_smith,jack) -> sibling(mary,jack)	 0 UI
+7    sibling(mary,jack)                                               	5,6 -> Elim
