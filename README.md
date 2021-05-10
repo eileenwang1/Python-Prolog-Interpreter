@@ -1,13 +1,7 @@
-# April 19 update
-add graph data structure in html parser
-## todo:
-- check the correctness of the tree for test3
-- make the plotted tree prettier
-- proof: disjunctive normal form in a graph?
-# April 11 update
-Draw the search tree for variable mappings following a sequence of rules in the database.
 
-## Tree
+
+This project trackes the search tree that the python prolog interpreter searches for solutions. From the search tree, it construct a proof tree and a formal proof for each step of the search.
+## Search Tree
 ```prolog
 sibling(X, Y) :- parent_child(Z, X), parent_child(Z, Y).
 parent_child( tom_smith, mary ).
@@ -18,16 +12,10 @@ X = [mary,jack].
 ```
 ![](/images/test1_plot.png)
 
-## Workflow
- * make pretty_print:
-   - prologpy/interpreter.py -> tests/test1 -> tests/test1_output
-   - pretty print (html) the sequence of execution that the prolog interpreter finds solutions
- * make parse_html (makefile unspecified)
-   - html_parser.py -> tests/test1_output -> test1_output.html -> test1_html_parser_ouput (output_dict)
-   - clean pretty-print output, get a mapping from sequence of rules to variable mappings
- * make plotting (makefile unspecified)
-   - output_dict -> tree image
-   - visualize contents in output_dict
+## Proof Tree
+
+## Formal Proof
+
 
 ## Dependencies
  * igraph
@@ -36,13 +24,8 @@ X = [mary,jack].
 
 
 ## Next steps:
- * add meaningful labels for vertices (goal?)
- * clean the workflow, specify commands in makefile
- * deal with edge cases
-   - more complex cases (test3): two unviable solutions are not eliminated from the graph
-   - cases where the interpreter returns false (test2), or is beyond its capacity in solving (test4, as this interpreter does not support recursive calls)
  * readability for graph plots (orientation, position of labels, etc.)
- * dynamnic plotting?
+
 
 # April 9 Update
 limitation: does not support recursion.
