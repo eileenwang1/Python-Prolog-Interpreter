@@ -1,7 +1,7 @@
 
 
 # Python Prolog Proof Constructor
-This project trackes the search tree that the python prolog interpreter searches for solutions. From the search tree, it construct a proof tree and a formal proof for each step of the search.
+This project tracks the search tree that the python prolog interpreter searches for solutions. From the search tree, it construct a proof tree and a formal proof for each step of the search.
 ## Sample Prolog Program
 ```prolog
 great_grand_parent(A,D) :- parent(A,B),grand_parent(B,D).
