@@ -39,6 +39,24 @@ class Clause(object):
                 to_substitute = variable_matching.get(self.arguments[i])
                 if to_substitute!=None:
                     self.arguments[i] = to_substitute.strip()
+    
+    def get_variable_matching(self,c2):
+        matching_dict = {}
+        if not self.match_functor(c2):
+            raise ValueError("functor not match")
+        l1 = copy.deepcopy(self.arguments)
+        l2 = copy.deepcopy(c2.arguments)
+        for i in range(len(l1)):
+            if re.match(VARIABLE_REGEX,l1[i])!=None and re.match(VARIABLE_REGEX,l2[i])==None:
+                if matching_dict.get(l1[i])!=None and matching_dict.get(l1[i])!=l2[i]:
+                    raise ValueError("inconsistent matching,{} to {} and {}".format(l1[i],matching_dict[l1[i]],l2[i]))
+                matching_dict[l1[i]] = l2[i]
+            elif re.match(VARIABLE_REGEX,l2[i])!=None and re.match(VARIABLE_REGEX,l1[i])==None:
+                if matching_dict.get(l2[i])!=None and matching_dict.get(l2[i])!=l1[i]:
+                    raise ValueError("inconsistent matching,{} to {} and {}".format(l2[i],matching_dict[l2[i]],l1[i]))
+                matching_dict[l2[i]] = l1[i]
+        return matching_dict
+                
 
     def test_substitution(self,variable_matching):
         print(self.variable_substitution(variable_matching))
