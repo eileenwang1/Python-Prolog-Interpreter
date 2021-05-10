@@ -44,11 +44,12 @@ class PlotTrees(object):
         if vis_tree==None:
             raise ValueError("vis_tree {} is None".format(vertex_idx))
         layout = vis_tree.layout("tree")
-        color_dict = color_dict = {True: "blue", False: "red"}
+        color_dict = color_dict = {True: "LightSkyBlue", False: "red"}
         visual_style = {}
         visual_style["vertex_order"] =range(len(vis_tree.vs))
         visual_style["vertex_size"] = 50
         visual_style["vertex_color"] = [color_dict[i] for i in vis_tree.vs["is_true"]]
+        visual_style["vertex_color"][0] = "yellow"
         visual_style["vertex_label"] = vis_tree.vs["clause"]
         visual_style["layout"] = layout
         visual_style["bbox"] = (600, 600)

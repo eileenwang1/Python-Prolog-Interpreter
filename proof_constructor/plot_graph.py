@@ -1,5 +1,5 @@
 import igraph
-
+import copy
 class PlotGraph(object):
     def __init__(self,to_plot,output_filename):
         self.to_plot = to_plot
@@ -11,12 +11,17 @@ class PlotGraph(object):
         vertices=sorted(self.to_plot.vertices(), key = lambda u: u.idx)
         # vertex_idx_list = []
         vertex_goal_list = []
+        truth_list = []
         for i in vertices:
             # vertex_idx_list.append(i.idx)
             vertex_goal_list.append(i.goal)
+            proof_tree = i.proof_tree
+            truth_list.append(copy.copy(proof_tree.is_true()))
         self.plotted.add_vertices(len(vertices))
         # self.plotted.vs['idx'] = vertex_idx_list
         self.plotted.vs['goal'] = vertex_goal_list
+        self.plotted.vs['is_true'] = truth_list
+
 
         # prepare edges
         edges = list(self.to_plot.edges())
@@ -48,6 +53,9 @@ class PlotGraph(object):
         self.plotted.es["label"] = edge_label_list
 
         visual_style = {}
+        color_dict = {True: "LightSkyBlue", False: "red"}
+        visual_style["vertex_color"] = [color_dict[i] for i in self.plotted.vs["is_true"]]
+        visual_style["vertex_color"][0] = "yellow"
         visual_style["vertex_size"] = 50
         # visual_style["vertex_color"] = [color_dict[gender] for gender in g.vs["gender"]]
         visual_style["vertex_label"] = self.plotted.vs['label']

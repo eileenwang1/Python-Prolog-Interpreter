@@ -31,6 +31,14 @@ class ProofTree:
     def is_empty(self):
         """Return True if the tree is empty."""
         return len(self) == 0
+    
+    def is_true(self):
+        # return true if every tree node is true
+        node_list = list(self.nodes())
+        for node in node_list:
+            if not node.is_true:
+                return False
+        return True
 
     def __iter__(self):
         """Generate an iteration of the tree's elements."""
