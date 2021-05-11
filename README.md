@@ -10,7 +10,7 @@ parent(alice,bob).
 parent(bob,charlie).
 parent(charlie,daisy).
 
-great_grand_parent(X,daisy).
+?- great_grand_parent(X,daisy).
 ```
 ## Search Tree
 ![](/images/test5_plot.png)
