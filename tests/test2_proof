@@ -1,0 +1,10 @@
+NODE 0
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(tom_smith,mary)                                     	    P
+2    parent_child(tom_smith,jack)                                     	    P
+     ---------------
+NODE 1
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(tom_smith,mary)                                     	    P
+2    parent_child(tom_smith,jack)                                     	    P
+     ---------------

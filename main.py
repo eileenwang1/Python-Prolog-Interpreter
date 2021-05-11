@@ -33,11 +33,13 @@ def main():
             print(error)  
     graph_filename = "{}{}_plot.png".format(plot_child_dir,atom_filename)
     
-    # pretty-print states of the python interpreter
+    # pretty-print the states of the python interpreter
     cmd_str = "python3 {}test_prettyprint.py {} > {}".format(SRC_DIR,test_case_filename,test_output_filename)
     os.system(cmd_str)
+    
     # post-process and parse pretty-printed output
     hp = HtmlParser(test_output_filename)   # parser object
+    # the search graph
     g = hp.html_to_graph()  # graph object
     rule_texts = hp.rule_texts  # list of rule texts (str)
    

@@ -62,7 +62,10 @@ class Proof(object):
             return str(rule)
         else:
             tail_string_list = [str(i) for i in rule.tail]
-            tail_string = " ∧ ".join(tail_string_list)
+            if len(tail_string_list)>1:
+                tail_string ="( "+ " ∧ ".join(tail_string_list)+" )"
+            else:
+                tail_string = tail_string_list[0]
             to_return = "{} -> {}".format(tail_string,str(rule.head))
             return to_return
 

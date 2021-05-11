@@ -1,0 +1,6 @@
+NODE 0
+0    tran(eins,one)                                                   	    P
+1    tran(zwei,two)                                                   	    P
+2    tran(drei,three)                                                 	    P
+3    ( tran(A,B) ∧ listtran(C,D) ) -> listtran(list ( A,B ),list ( C,D ))	    P
+     ---------------

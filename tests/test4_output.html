@@ -1,7 +1,5 @@
 <rules rules=['tran ( eins, one )  :- TRUE', 'tran ( zwei, two )  :- TRUE', 'tran ( drei, three )  :- TRUE', 'listtran ( list ( A, B ) , list ( C, D )  )  :- tran ( A, B ) , listtran ( C, D ) ']>
 </rules>
-query:  listtran ( list ( eins ) , list ( X )  ) 
-query.arguments:  [list ( eins ) , list ( X ) ]
 <query goal="listtran ( list ( eins ) , list ( X )  ) ">
 <forloop index="0" rule="tran ( eins, one )  :- TRUE">
 </forloop>
