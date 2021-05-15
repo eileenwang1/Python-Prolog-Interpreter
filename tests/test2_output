@@ -1,10 +1,10 @@
 <rules rules=['sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ', 'parent_child ( tom_smith, mary )  :- TRUE', 'parent_child ( tom_smith, jack )  :- TRUE']>
 </rules>
-query:  sibling ( tom_smith, X ) 
-query.arguments:  [tom_smith, X]
-<query goal="sibling ( tom_smith, X ) ">
+query:  sibling ( tom_smith, A ) 
+query.arguments:  [tom_smith, A]
+<query goal="sibling ( tom_smith, A ) ">
 <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
-<matching_head matchinghead="{X: tom_smith, Y: X}"> 
+<matching_head matchinghead="{X: tom_smith, Y: A}"> 
 </matching_head>
 <query goal="parent_child ( Z, tom_smith ) ">
 <forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">

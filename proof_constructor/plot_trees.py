@@ -49,7 +49,7 @@ class PlotTrees(object):
         visual_style["vertex_order"] =range(len(vis_tree.vs))
         visual_style["vertex_size"] = 50
         visual_style["vertex_color"] = [color_dict[i] for i in vis_tree.vs["is_true"]]
-        visual_style["vertex_color"][0] = "yellow"
+        visual_style["vertex_color"][0] = "LightGreen" if vis_tree.vs["is_true"][0] else "yellow"
         visual_style["vertex_label"] = vis_tree.vs["clause"]
         visual_style["layout"] = layout
         visual_style["bbox"] = (600, 600)

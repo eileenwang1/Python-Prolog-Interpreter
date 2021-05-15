@@ -1,0 +1,40 @@
+NODE 0
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(C,A)                                                	    P
+2    parent_child(C,B)                                                	    P
+     ---------------
+NODE 1
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(C,A)                                                	    P
+2    parent_child(C,B)                                                	    P
+     ---------------
+NODE 2
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(C,A)                                                	    P
+2    parent_child(C,B)                                                	    P
+     ---------------
+NODE 3
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(C,A)                                                	    P
+2    parent_child(C,B)                                                	    P
+     ---------------
+NODE 4
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(C,A)                                                	    P
+2    parent_child(C,B)                                                	    P
+     ---------------
+NODE 5
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(C,A)                                                	    P
+2    parent_child(C,B)                                                	    P
+     ---------------
+NODE 6
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(C,A)                                                	    P
+2    parent_child(C,B)                                                	    P
+     ---------------
+NODE 7
+0    ( parent_child(Z,X) ∧ parent_child(Z,Y) ) -> sibling(X,Y)        	    P
+1    parent_child(C,A)                                                	    P
+2    parent_child(C,B)                                                	    P
+     ---------------

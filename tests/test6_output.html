@@ -1,0 +1,68 @@
+<rules rules=['sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ', 'parent_child ( C, A )  :- TRUE', 'parent_child ( C, B )  :- TRUE']>
+</rules>
+<query goal="sibling ( A, B ) ">
+<forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+<matching_head matchinghead="{X: A, Y: B}"> 
+</matching_head>
+<query goal="parent_child ( Z, A ) ">
+<forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+</forloop>
+<forloop index="1" rule="parent_child ( C, A )  :- TRUE">
+<matching_head matchinghead="{C: Z, A: A}"> 
+</matching_head>
+<yield output="parent_child ( Z, A ) ">
+</yield>
+<query goal="parent_child ( Z, B ) ">
+<forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+</forloop>
+<forloop index="1" rule="parent_child ( C, A )  :- TRUE">
+<matching_head matchinghead="{C: Z, A: B}"> 
+</matching_head>
+<yield output="parent_child ( Z, B ) ">
+</yield>
+<yield output="sibling ( A, B ) ">
+</yield>
+</forloop>
+<forloop index="2" rule="parent_child ( C, B )  :- TRUE">
+<matching_head matchinghead="{C: Z, B: B}"> 
+</matching_head>
+<yield output="parent_child ( Z, B ) ">
+</yield>
+<yield output="sibling ( A, B ) ">
+</yield>
+</forloop>
+</query>
+</forloop>
+<forloop index="2" rule="parent_child ( C, B )  :- TRUE">
+<matching_head matchinghead="{C: Z, B: A}"> 
+</matching_head>
+<yield output="parent_child ( Z, A ) ">
+</yield>
+<query goal="parent_child ( Z, B ) ">
+<forloop index="0" rule="sibling ( X, Y )  :- parent_child ( Z, X ) , parent_child ( Z, Y ) ">
+</forloop>
+<forloop index="1" rule="parent_child ( C, A )  :- TRUE">
+<matching_head matchinghead="{C: Z, A: B}"> 
+</matching_head>
+<yield output="parent_child ( Z, B ) ">
+</yield>
+<yield output="sibling ( A, B ) ">
+</yield>
+</forloop>
+<forloop index="2" rule="parent_child ( C, B )  :- TRUE">
+<matching_head matchinghead="{C: Z, B: B}"> 
+</matching_head>
+<yield output="parent_child ( Z, B ) ">
+</yield>
+<yield output="sibling ( A, B ) ">
+</yield>
+</forloop>
+</query>
+</forloop>
+</query>
+</forloop>
+<forloop index="1" rule="parent_child ( C, A )  :- TRUE">
+</forloop>
+<forloop index="2" rule="parent_child ( C, B )  :- TRUE">
+</forloop>
+</query>

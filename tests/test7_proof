@@ -1,0 +1,7 @@
+NODE 0
+0    parent(alice,bob)                                                	    P
+     ---------------
+NODE 1
+0    parent(alice,bob)                                                	    P
+     ---------------
+1    parent(alice,bob)                                                	    0

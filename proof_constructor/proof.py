@@ -9,7 +9,7 @@ CONJUNCTION_INTRODUCTION = "∧ Intro"
 CONDITONAL_ELIMINATION = "-> Elim"
 class Derivation(object):
     def __init__(self,truth):
-        self.truth = truth # a list of clauses
+        self.truth = truth # a list of clauses, or a rule
         self.rule_idx = None
         self.premises = []  # a list of index of derivations
         self.justification = None

@@ -21,6 +21,7 @@ class PlotGraph(object):
         # self.plotted.vs['idx'] = vertex_idx_list
         self.plotted.vs['goal'] = vertex_goal_list
         self.plotted.vs['is_true'] = truth_list
+        # print(truth_list)
 
 
         # prepare edges

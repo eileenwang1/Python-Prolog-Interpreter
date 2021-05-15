@@ -24,6 +24,7 @@ NODE 3
 5    parent_child(tom_smith,mary) ∧ parent_child(tom_smith,mary)      	3,3 ∧ Intro
 6    ( parent_child(tom_smith,mary) ∧ parent_child(tom_smith,mary) ) -> sibling(mary,mary)	 0 UI
 7    sibling(mary,mary)                                               	5,6 -> Elim
+
 NODE 4
 0    ( parent_child(C,A) ∧ parent_child(C,B) ) -> sibling(A,B)        	    P
 1    parent_child(tom_smith,mary)                                     	    P
@@ -34,3 +35,4 @@ NODE 4
 5    parent_child(tom_smith,mary) ∧ parent_child(tom_smith,jack)      	3,4 ∧ Intro
 6    ( parent_child(tom_smith,mary) ∧ parent_child(tom_smith,jack) ) -> sibling(mary,jack)	 0 UI
 7    sibling(mary,jack)                                               	5,6 -> Elim
+

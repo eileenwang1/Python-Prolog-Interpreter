@@ -1,0 +1,5 @@
+sibling(X, Y) :- parent_child(Z, X), parent_child(Z, Y).
+parent_child( C,A ).
+parent_child( C, B ).
+
+sibling(A,B).
